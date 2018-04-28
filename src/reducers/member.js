@@ -4,15 +4,31 @@ export const initialState = Store;
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
-    case 'USER_LOGIN': {
+    case 'USER_LOGIN':
+    case 'USER_SIGN_UP': {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+        success: false,
+      };
+    }
+    case 'USER_SIGN_UP_SUCCESS': {
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        success: true,
+      };
+      return initialState;
+    }
+    case 'USER_LOGIN_SUCCESS': {
       if (action.data) {
         return {
           ...state,
-          loading: false,
+          isLoading: false,
           error: null,
-          uid: action.data.uid,
-          email: action.data.email,
-          emailVerified: action.data.emailVerified,
+          token: action.data.token,
         };
       }
       return initialState;
