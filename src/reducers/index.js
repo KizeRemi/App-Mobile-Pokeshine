@@ -1,4 +1,5 @@
 import member from './member';
+import pokemon from './pokemon';
 import locale from './locale';
 
 const rehydrated = (state = false, action) => {
@@ -13,5 +14,6 @@ const rehydrated = (state = false, action) => {
 export default {
   rehydrated,
   member,
+  pokemon,
   locale,
 };

@@ -1,0 +1,9 @@
+HTTP/1.1 303 See Other
+Server: Apache-Coyote/1.1
+Vary: Accept
+Location: http://portal.acm.org/citation.cfm?doid=147126.147133
+Expires: Sun, 29 Apr 2018 14:44:34 GMT
+Content-Type: text/html;charset=utf-8
+Content-Length: 191
+Date: Sun, 29 Apr 2018 13:50:07 GMT
+

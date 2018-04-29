@@ -57,6 +57,12 @@ export default function userReducer(state = initialState, action) {
       }
       return initialState;
     }
+    case 'USER_RESET_TOKEN': {
+      return {
+        ...state,
+        token: null,
+      };
+    }
     case 'USER_RESET': {
       return initialState;
     }

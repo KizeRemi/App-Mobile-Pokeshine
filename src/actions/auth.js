@@ -50,6 +50,7 @@ export function login(formData, dispatch) {
     username,
     password,
   } = formData;
+
   const body = new FormData();
   body.append('username', username);
   body.append('password', password);

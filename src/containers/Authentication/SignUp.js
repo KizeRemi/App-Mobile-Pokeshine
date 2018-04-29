@@ -84,7 +84,7 @@ class Login extends Component {
         </Form>
         <TouchableOpacity onPress={this.handleSubmit}>
           <View>
-            <Text>S'inscrivre</Text>
+            <Text>S'inscrire</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.layoutCenter, { marginTop: 20 }]} onPress={() => toggleAuthentication('login')}>
@@ -94,7 +94,6 @@ class Login extends Component {
     );
   }
 }
-
 
 const mapStateToProps = state => ({
   member: state.member,
