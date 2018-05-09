@@ -1,5 +1,5 @@
 import request from './utils';
-
+import { getMe } from './member';
 const BASE_URI = 'http://www.pokeshine.remi-mavillaz.fr/index.php/api/v1'
 
 /**
@@ -64,6 +64,6 @@ export function login(formData, dispatch) {
     method: 'post',
     body,
   }).then((response) => {
-    dispatch({ type: 'USER_LOGIN_SUCCESS', data: response.data });
+    getMe(response.data.token, dispatch);
   });
 }

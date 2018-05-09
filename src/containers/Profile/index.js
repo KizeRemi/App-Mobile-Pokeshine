@@ -3,19 +3,29 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TouchableOpacity, Text } from 'react-native';
 import { Background } from '../../components/Views';
-import { Actions } from 'react-native-router-flux';
+import Header from './Header';
+import Numbers from './Numbers';
+import Rewards from './Rewards';
+import Informations from './Informations';
+import FriendCode from './FriendCode';
 
-class Settings extends Component {
+class Profile extends Component {
 
   render() {
+    const { member } = this.props;
     return (
       <Background>
-        <TouchableOpacity onPress={Actions.settings}>
-          <Text>Réglages</Text>
-        </TouchableOpacity>
+        <Header member={member} />
+        <Rewards />
+        <Informations member={member}/>
+        <FriendCode friendCode={member.friendCode} />
       </Background>   
     )
   }
 }
+const mapStateToProps = state => ({
+  member: state.member,
+  isLoading: state.member.isLoading,
+});
 
-export default Settings;
+export default connect(mapStateToProps)(Profile);

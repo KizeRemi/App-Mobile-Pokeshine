@@ -5,7 +5,9 @@ export const initialState = Store;
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case 'USER_LOGIN':
+    case 'UPDATE_USER':
     case 'USER_SIGN_UP': {
+      console.log('dd');
       return {
         ...state,
         isLoading: true,
@@ -16,36 +18,26 @@ export default function userReducer(state = initialState, action) {
     case 'USER_SIGN_UP_SUCCESS': {
       return {
         ...state,
-        isLoading: false,
+        isLoading: true,
         error: null,
         success: true,
       };
       return initialState;
     }
-    case 'USER_LOGIN_SUCCESS': {
-      if (action.data) {
-        return {
-          ...state,
-          isLoading: false,
-          error: null,
-          token: action.data.token,
-        };
+    case 'LOAD_USER_DETAILS_CONNECTED_SUCCESS': {
+      const { data } = action;
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        username: data.username,
+        signedUp: data.signedUp,
+        friendCode: data.friendCode,
+        age: data.age,
+        region: data.region,
+        nbrShinies: data.nbrShinies,
+        token: action.token,
       }
-      return initialState;
-    }
-    case 'USER_DETAILS_UPDATE': {
-      if (action.data) {
-        return {
-          ...state,
-          loading: false,
-          error: null,
-          firstName: action.data.firstName,
-          lastName: action.data.lastName,
-          signedUp: action.data.signedUp,
-          role: action.data.role,
-        };
-      }
-      return initialState;
     }
     case 'USER_ERROR': {
       if (action.data) {
