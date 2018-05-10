@@ -82,3 +82,9 @@ export const TextSubmit = styled.Text`
   font-size: 18;
   font-family: openSansBoldItalic;
 `;
+
+export const TextNumberCollector = styled.Text`
+  color: #4A4A4A;
+  font-size: 35;
+  font-family: openSansBoldItalic;
+`;

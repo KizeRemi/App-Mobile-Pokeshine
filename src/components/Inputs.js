@@ -5,4 +5,5 @@ export const Input = styled.TextInput`
   border-color: #A09F9F;
   border-width: 1;
   padding-horizontal: 5;
+  margin-bottom: 15;
 `;

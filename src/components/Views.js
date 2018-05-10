@@ -19,17 +19,6 @@ export const Header = styled.View`
   background-color: #b3dbfd;
 `;
 
-export const ShinyContent = styled.View`
-  width: 150;
-  height: 100;
-  border-radius: 10;
-  justify-content: center;
-  align-items: center;
-  margin-vertical: 5;
-  margin-horizontal: 5;
-  background-color: white;
-`;
-
 export const NumbersContent = styled.View`
   flex: 1;
   flex-direction: row;

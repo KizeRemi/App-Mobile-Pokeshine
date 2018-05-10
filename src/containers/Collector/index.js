@@ -2,11 +2,13 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Background, Header } from '../../components/Views';
-import { Text, View, ScrollView } from 'react-native';
+import { View } from 'react-native';
 import ScrollGen from './ScrollGen';
 import { TextHeader } from '../../components/Texts';
 import { getShinyCollection } from '../../actions/pokemon';
 import ShinyBloc from './ShinyBloc';
+import NumberBloc from './NumberBloc';
+
 import { PKMN_BY_GEN } from './constants';
 
 
@@ -37,13 +39,16 @@ class Collector extends Component {
     const { shinyCollection } = this.props;
     const range = PKMN_BY_GEN[this.state.generation - 1];
     const shiniesByGen = shinyCollection.slice(range.start, range.end);
+
     return (
       <Background>
         <Header><TextHeader>SHINYDEX</TextHeader></Header>
         <ScrollGen switchGeneration={this.switchGeneration} />
         <View style={{ margin: 10, flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'  }}>
         {shiniesByGen.map((shiny, index) =>
-            <ShinyBloc shiny={shiny} key={index} />
+          <Fragment>
+            {typeof shiny === 'object' ? <ShinyBloc shiny={shiny} key={index} /> : <NumberBloc key={index} number={shiny} />}
+          </Fragment>
         )}
         </View>
       </Background>   

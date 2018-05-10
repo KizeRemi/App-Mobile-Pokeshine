@@ -51,6 +51,7 @@ class Settings extends Component {
               placeholder="Ex: 20..."
               keyboardType="numeric"
               value={age.toString()}
+              maxLength={2}
               onChangeText={v => this.handleChange('age', v)}
           />
           <TextLabel>Ta région</TextLabel>
@@ -58,6 +59,7 @@ class Settings extends Component {
               autoCapitalize="none"
               placeholder="Ex: Hauts de France"
               value={region}
+              maxLength={20}
               onChangeText={v => this.handleChange('region', v)}
           />
           <TextLabel>Ton code ami</TextLabel>
@@ -65,6 +67,7 @@ class Settings extends Component {
               autoCapitalize="none"
               placeholder="Ex: Hauts de France"
               keyboardType="numeric"
+              maxLength={12}
               value={friendCode.toString()}
               onChangeText={v => this.handleChange('friendCode', v)}
           />

@@ -14,13 +14,14 @@ class ProfileHeader extends PureComponent {
 
   render () {
     const { member } = this.props;
+    console.log('http://www.pokeshine.remi-mavillaz.fr/uploads/avatars/' + member.avatar);
     return (      
       <View
         style={{ width: '100%', paddingVertical: 30, backgroundColor: '#b3dbfd', alignItems: 'center', height: 250 }}
       >
         <TouchableOpacity onPress={Actions.camera}>
           <ImageProfile
-            source={{uri: 'https://www.bypeople.com/wp-content/uploads/2016/01/purple-clean-profile-app.jpg'}}
+            source={{uri: 'http://www.pokeshine.remi-mavillaz.fr/uploads/avatars/' + member.avatar }}
           />
         </TouchableOpacity>
         <View style={{ flex: 1, flexDirection: 'row', margin: 0 }}>

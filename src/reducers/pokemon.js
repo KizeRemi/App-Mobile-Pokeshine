@@ -32,13 +32,14 @@ export default function pokemonReducer(state = initialState, action) {
     }
     case 'LOAD_POKEMON_COLLECTION_SUCCESS': {
       const range = PKMN_BY_GEN[action.gen - 1];
-      console.log('d');
       for (let i = range.start; i <= range.end; i++) {
         const shiny = action.data.find((shiny) => {
           return shiny.pokemon.number === i;
         });
         if (shiny) {
           state.list[i] = shiny;
+        } else {
+          state.list[i] = i;
         }
       }
 

@@ -47,3 +47,21 @@ export function updateProfile(token, formData, dispatch) {
     dispatch({ type: 'LOAD_USER_DETAILS_CONNECTED_SUCCESS', data: response.data, token });
   });
 }
+
+/**
+  * Update Profile
+  */
+export function updateAvatar(token, base64, dispatch) {
+  return request(`${BASE_URI}/users/avatar`, {
+    method: 'PATCH',
+    body: JSON.stringify({ avatar: 'data:image/jpeg;base64,'+base64 }),
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((response) => {
+    console.log(response);
+    dispatch({ type: 'LOAD_USER_DETAILS_CONNECTED_SUCCESS', data: response.data, token });
+  });
+}

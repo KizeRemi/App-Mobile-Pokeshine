@@ -16,3 +16,14 @@ export const SubmitButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
 `;
+
+export const ShinyContent = styled.TouchableOpacity`
+  width: 150;
+  height: 100;
+  border-radius: 10;
+  justify-content: center;
+  align-items: center;
+  margin-vertical: 5;
+  margin-horizontal: 5;
+  background-color: white;
+`;

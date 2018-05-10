@@ -30,12 +30,14 @@ export default function userReducer(state = initialState, action) {
         ...state,
         isLoading: false,
         error: null,
+        id: data.id,
         username: data.username,
         signedUp: data.signedUp,
         friendCode: data.friendCode,
         age: data.age,
         region: data.region,
         nbrShinies: data.nbrShinies,
+        avatar: data.avatar,
         token: action.token,
       }
     }

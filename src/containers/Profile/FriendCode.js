@@ -6,7 +6,7 @@ import { TextFriendCode } from '../../components/Texts';
 
 class ProfileFriendCode extends PureComponent {
   static propTypes = {
-    friendCode: PropTypes.number.isRequired,
+    friendCode: PropTypes.string.isRequired,
   };
 
   render () {
