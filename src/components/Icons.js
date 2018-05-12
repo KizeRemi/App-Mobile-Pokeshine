@@ -12,3 +12,9 @@ export const UpdateIcon = styled.Text`
   font-family: faSolid;
   marginLeft: 5;
 `;
+
+export const SocialIcon = styled.Text`
+  color: #FFF;
+  font-size: 25;
+  font-family: faRegular;
+`;

@@ -28,7 +28,7 @@ export const NumbersContent = styled.View`
 `;
 
 export const NumbersBloc = styled.View`
-  background-color: ${props => props.backgroundColor ? props.backgroundColor : '#545DA3}'};
+  background-color: ${props => props.backgroundColor ? props.backgroundColor : '#545DA3'};
   flex: 1;
   align-items: center;
   justify-content: center;
@@ -95,4 +95,56 @@ export const ProfileTitleSettings = styled.View`
 export const InputContainer = styled.View`
   margin-horizontal: 30;
   margin-bottom: 15;
+`;
+
+
+export const SocialContainer = styled.View`
+  flex: 1;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-horizontal: 15;
+  margin-top: 20;
+`;
+
+export const MeasurementContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  margin-top: 20;
+  height: 66;
+`;
+
+export const MeasurementBloc = styled.View`
+  flex: 1;
+  align-items: center;
+  border-color: #b3dbfd;
+  ${props => props.left ? 'border-left-width: 2;' : 'border-right-width: 2;'}
+`;
+
+export const DescriptionBloc = styled.View`
+  flex: 1;
+  margin-top: 30;
+  justify-content: flex-start;
+`;
+
+export const CollectorContent = styled.View`
+  flex: 1;
+  margin-horizontal: 10;
+  margin-vertical: 10;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`;
+
+
+export const ProgressGenerationContainer = styled.View`
+  height: 100;
+  background-color: #FFF;
+  margin-horizontal: 15;
+  margin-vertical: 20;
+  padding-horizontal: 10;
+  padding-vertical: 10;
+  border-radius: 5;
 `;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity, View, Text, TextInput, Vibration } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { Camera, Permissions } from 'expo';
+import { Camera, Permissions, ImagePicker } from 'expo';
 import { updateAvatar } from '../../../actions/member';
 
 class CameraScreen extends Component {
@@ -14,17 +14,18 @@ class CameraScreen extends Component {
   }
 
   async componentDidMount() {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
     this.setState({ permissionsGranted: status === 'granted' });
   }
 
   takePicture = async () => {
     const { member, updateAvatar } = this.props;
     if (this.camera) {
-      this.camera.takePictureAsync({ quality:0, base64: true }).then(data => {
-        updateAvatar(member.token, data.base64);
+      const result = await ImagePicker.launchImageLibraryAsync({ base64: true, aspect: [3, 4] });
+      if (!result.cancelled) {
+        updateAvatar(member.token, result.base64);
         Actions.profile();
-      });
+      }
     }
   }
 

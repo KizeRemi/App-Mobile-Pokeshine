@@ -27,3 +27,12 @@ export const ShinyContent = styled.TouchableOpacity`
   margin-horizontal: 5;
   background-color: white;
 `;
+
+export const SocialButton = styled.TouchableOpacity`
+  height: 40;
+  width: 70;
+  background-color: #b3dbfd;
+  border-radius: 5;
+  justify-content: center;
+  align-items: center;
+`;

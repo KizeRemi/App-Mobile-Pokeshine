@@ -1,8 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { BackgroundWhite, ProfileTitleSettings, InputContainer } from '../../../components/Views';
+import { BackgroundWhite, DescriptionBloc } from '../../../components/Views';
+import { TextShinyPageTitle, TextTitleDescription, ShinyDescription } from '../../../components/Texts';
 import { loadShiny } from '../../../actions/pokemon';
+import { Text, View, Image } from 'react-native';
+
+import Img from '../../../images/shiny.png';
+import SocialContent from './SocialContent';
+import Measurement from './Measurement';
 
 class Shiny extends Component {
   static propTypes = {
@@ -18,9 +24,26 @@ class Shiny extends Component {
   }
 
   render() {
-    console.log(this.props);
+    const { isLoading, shiny, number } = this.props;
+    const { pokemon } = shiny;
+    console.log(shiny);
     return (
       <BackgroundWhite>
+        {isLoading ? (
+          <Text>Chargement en cours...</Text>
+        ) : (
+          <View style={{ margin: 20 }}>
+            <TextShinyPageTitle>{`#${number} ${pokemon.name}`}</TextShinyPageTitle>
+            <SocialContent />
+            <Text style={{ marginTop: 15 }}>Medias</Text>
+            <Image style={{ marginVertical: 15,  width: '100%', height: 180 }} source={Img} />
+            <Measurement height={10} weight={55} />
+            <DescriptionBloc>
+              <TextTitleDescription>Description de la capture</TextTitleDescription>
+              <ShinyDescription>{shiny.description}</ShinyDescription>
+            </DescriptionBloc>
+          </View>
+        )}
 
       </BackgroundWhite>
     )

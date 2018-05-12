@@ -10,7 +10,6 @@ export default function request(url, options) {
 
     return fetch(url, options).then((response) => {
       const { status, headers } = response;
-      console.log(response);
 
       if (status >= 200 && status < 300) {
         if (status === 204) {

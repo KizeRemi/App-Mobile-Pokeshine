@@ -88,3 +88,58 @@ export const TextNumberCollector = styled.Text`
   font-size: 35;
   font-family: openSansBoldItalic;
 `;
+
+export const TextShinyTitle = styled.Text`
+  color: #4A4A4A;
+  font-size: 16;
+  font-family: openSansBoldItalic;
+`;
+
+export const TextShinyNotValide = styled.Text`
+  color: #A09F9F;
+  font-size: 12;
+  font-family: oswaldBold;
+`;
+
+export const TextShinyPageTitle = styled.Text`
+  color: #A09F9F;
+  font-size: 30;
+  font-family: openSansBoldItalic;
+`;
+
+export const TextShinyHeight = styled.Text`
+  color: #b3dbfd;
+  font-size: 30;
+  font-family: oswaldBold;
+`;
+
+export const TextMeasurement = styled.Text`
+  color: #b3dbfd;
+  font-size: 16;
+  font-family: oswaldBold;
+`;
+
+export const TextTitleDescription = styled.Text`
+  color: #b3dbfd;
+  font-size: 16;
+  font-family: openSansBoldItalic;
+`;
+
+export const ShinyDescription = styled.Text`
+  color: #A09F9F;
+  font-size: 14;
+  margin-top: 5;
+  font-family: openSansRegular;
+`;
+
+export const ProgressBarTitle = styled.Text`
+  color: #4A4A4A;
+  font-size: 16;
+  font-family: openSansBoldItalic;
+`;
+
+export const ProgressBar = styled.Text`
+  color: #b3dbfd;
+  font-size: 16;
+  font-family: oswaldBold;
+`;

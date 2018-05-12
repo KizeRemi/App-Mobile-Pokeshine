@@ -17,6 +17,7 @@ export const initialState = {
       220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239,
       240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251,
     ],
+    counterShinies: {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0},
     isLoading: false,
     error: null,
 };
@@ -32,21 +33,28 @@ export default function pokemonReducer(state = initialState, action) {
     }
     case 'LOAD_POKEMON_COLLECTION_SUCCESS': {
       const range = PKMN_BY_GEN[action.gen - 1];
+      let counterShinies = 0;
+
       for (let i = range.start; i <= range.end; i++) {
         const shiny = action.data.find((shiny) => {
           return shiny.pokemon.number === i;
         });
         if (shiny) {
           state.list[i] = shiny;
+          if (shiny.validate === true) {
+            counterShinies += 1;
+          }
         } else {
           state.list[i] = i;
         }
       }
+      state.counterShinies[action.gen] = counterShinies;
 
       return {
         ...state,
         isLoading: false,
         error: null,
+        counterShinies: state.counterShinies,
         list: state.list,
       };
     }
