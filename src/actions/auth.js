@@ -65,5 +65,6 @@ export function login(formData, dispatch) {
     body,
   }).then((response) => {
     getMe(response.data.token, dispatch);
+    setTimeout(function() { dispatch({ type: 'USER_RESET_TOKEN' }) }, 3570000);
   });
 }

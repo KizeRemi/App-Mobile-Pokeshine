@@ -50,8 +50,8 @@ class Collector extends Component {
         <ProgressGeneration counter={counterShinies[generation]} total={range.end - range.start} />
         <CollectorContent>
         {shiniesByGen.map((shiny, index) =>
-          <Fragment>
-            {typeof shiny === 'object' ? <ShinyBloc shiny={shiny} key={index} /> : <NumberBloc key={index} number={shiny} />}
+          <Fragment key={index}>
+            {typeof shiny === 'object' ? <ShinyBloc shiny={shiny} /> : <NumberBloc number={shiny} />}
           </Fragment>
         )}
         </CollectorContent>

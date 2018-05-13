@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { TouchableOpacity, Text } from 'react-native';
+import { View } from 'react-native';
 import { Background } from '../../components/Views';
 import Header from './Header';
 import Numbers from './Numbers';
 import Rewards from './Rewards';
 import Informations from './Informations';
 import FriendCode from './FriendCode';
+import ProgressGenerations from './ProgressGenerations';
 
 class Profile extends Component {
 
@@ -16,6 +17,7 @@ class Profile extends Component {
     return (
       <Background>
         <Header member={member} />
+        <ProgressGenerations />
         <Rewards />
         <Informations member={member}/>
         <FriendCode friendCode={member.friendCode} />
@@ -23,6 +25,7 @@ class Profile extends Component {
     )
   }
 }
+
 const mapStateToProps = state => ({
   member: state.member,
   isLoading: state.member.isLoading,

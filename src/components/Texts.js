@@ -143,3 +143,16 @@ export const ProgressBar = styled.Text`
   font-size: 16;
   font-family: oswaldBold;
 `;
+
+export const ProgressTitle = styled.Text`
+  color: #b3dbfd;
+  font-size: 16;
+  font-family: oswaldBold;
+  margin-bottom: 10;
+`;
+
+export const ProgressGenTitle = styled.Text`
+  color: ${props => props.color && props.color };
+  font-size: 16;
+  font-family: openSansBoldItalic;
+`;

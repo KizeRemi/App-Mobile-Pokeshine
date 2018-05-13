@@ -1,5 +1,5 @@
 import request from './utils';
-
+import { Platform } from 'react-native';
 const BASE_URI = 'http://www.pokeshine.remi-mavillaz.fr/index.php/api/v1'
 
 /**
@@ -32,8 +32,6 @@ export function updateProfile(token, formData, dispatch) {
 
   if (!age) return reject({ message: ErrorMessages.missingFirstName });
   if (!friendCode) return reject({ message: ErrorMessages.missingLastName });
-  console.log(JSON.stringify(formData));
-
 
   return request(`${BASE_URI}/users`, {
     method: 'PATCH',
@@ -52,9 +50,11 @@ export function updateProfile(token, formData, dispatch) {
   * Update Profile
   */
 export function updateAvatar(token, base64, dispatch) {
+  const base = Platform.OS === 'android' ? base64.replace(/\n|\r/g, "") : base64;
+
   return request(`${BASE_URI}/users/avatar`, {
     method: 'PATCH',
-    body: JSON.stringify({ avatar: 'data:image/jpeg;base64,'+base64 }),
+    body: JSON.stringify({ avatar: 'data:image/jpeg;base64,'+base }),
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

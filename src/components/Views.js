@@ -59,6 +59,26 @@ export const ProfileBlocContainer = styled.View`
   border-color: #efeef1;
 `;
 
+export const ProfileProgressContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  background-color: #FFF;
+  margin-horizontal: 15;
+  margin-vertical: 10;
+  padding-right: 10;
+  padding-vertical: 10;
+`;
+
+export const ProfileProgressContent = styled.View`
+  flex: 1;
+  margin-horizontal: 10;
+  margin-vertical: 10;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 export const ProfileBlocContent = styled.View`
   flex: 1;
   margin-horizontal: 15;
