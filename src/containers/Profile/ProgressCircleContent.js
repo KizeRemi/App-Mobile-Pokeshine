@@ -4,19 +4,43 @@ import { View } from 'react-native';
 import { ProgressTitle, ProgressGenTitle } from '../../components/Texts';
 import * as Progress from 'react-native-progress';
 
+import { PKMN_BY_GEN } from '../Collector/constants';
+
 class ProgressGenerations extends PureComponent {
   static propTypes = {
     color: PropTypes.string.isRequired,
     progress: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
+    gen: PropTypes.number.isRequired,
   };
 
+  calculProgression = () => {
+    const { progress, gen } = this.props;
+    const currentGen = PKMN_BY_GEN[gen - 1];
+    return progress / (currentGen.end - currentGen.start);
+  }
+
+  formatText = () => {
+    const { progress, gen } = this.props;
+    const currentGen = PKMN_BY_GEN[gen - 1];
+    return `${progress} / ${currentGen.end - currentGen.start}`
+  }
+
   render() {
-    const { color, progress, title } = this.props;
+    const { color, progress, gen } = this.props;
+    const currentGen = PKMN_BY_GEN[gen - 1];
     return ( 
       <View style={{ alignItems: 'center' }} >
-        <ProgressGenTitle color={color}>{title}</ProgressGenTitle>
-        <Progress.Circle size={70} thickness={8} progress={progress} style={{ marginBottom: 10, marginHorizontal: 2 }} color={color} />
+        <ProgressGenTitle color={color}>{currentGen.name}</ProgressGenTitle>
+        <Progress.Circle
+          size={70}
+          thickness={8}
+          progress={this.calculProgression()}
+          style={{ marginBottom: 10, marginHorizontal: 5 }}
+          color={color}
+          showsText
+          formatText={this.formatText}
+          textStyle={{ fontFamily: 'openSansBoldItalic', fontSize: 13 }}
+        />
       </View>
     );
   }
