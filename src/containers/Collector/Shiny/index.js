@@ -26,7 +26,6 @@ class Shiny extends Component {
   render() {
     const { isLoading, shiny, number } = this.props;
     const { pokemon } = shiny;
-    console.log(shiny);
     return (
       <BackgroundWhite>
         {isLoading ? (
@@ -58,7 +57,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadShiny: (token, number) => loadShiny(token, number, dispatch),
+    loadShiny: (id, number) => loadShiny(id, number, dispatch),
   }
 };
 
