@@ -1,23 +1,22 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { BackgroundWhite, DescriptionBloc } from '../../../components/Views';
-import { TextShinyPageTitle, TextTitleDescription, ShinyDescription } from '../../../components/Texts';
-import { loadShiny } from '../../../actions/pokemon';
-import { Text, View, Image } from 'react-native';
+import { BackgroundWhite, HeaderHome } from '../../components/Views';
+import { TitleHome } from '../../components/Texts';
+import UsersTop from './UsersTop';
 
-class Shiny extends Component {
+class Home extends Component {
+
   render() {
     return (
       <BackgroundWhite>
-
+        <HeaderHome>
+          <TitleHome>{'Welcome to pokeshine'.toUpperCase()}</TitleHome>
+          <UsersTop />
+        </HeaderHome>
       </BackgroundWhite>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  id: state.member.id,
-});
-
-export default connect(mapStateToProps)(Home);
+export default Home;

@@ -18,3 +18,9 @@ export const SocialIcon = styled.Text`
   font-size: 25;
   font-family: faRegular;
 `;
+
+export const TrophyIcon = styled.Text`
+  color: ${props => props.color && props.color };
+  font-size: 28;
+  font-family: faSolid;
+`;

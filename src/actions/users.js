@@ -5,7 +5,7 @@ const BASE_URI = 'http://www.pokeshine.remi-mavillaz.fr/index.php/api/v1'
 /**
   * Load top users for shinies hunting
   */
-export function loadUsersTop(dispatch) {
+export function loadUsersTop(token, dispatch) {
   dispatch({ type: 'LOAD_USERS_TOP' });
 
   return request(`${BASE_URI}/users/top`, {
@@ -13,6 +13,7 @@ export function loadUsersTop(dispatch) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     },
   }).then((response) => {
     dispatch({ type: 'LOAD_USERS_TOP_SUCCESS', data: response.data });

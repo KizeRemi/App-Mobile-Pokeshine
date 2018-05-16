@@ -2,8 +2,9 @@ import request from './utils';
 
 const BASE_URI = 'http://www.pokeshine.remi-mavillaz.fr/index.php/api/v1'
 
-function getPokemonCollectionRequestUrl(offset, gen) {
-  let requestURL = `${BASE_URI}/users/2/shinies?`
+function getPokemonCollectionRequestUrl(idUser, offset, gen) {
+  //get id from user
+  let requestURL = `${BASE_URI}/users/${idUser}/shinies?`
     + `generation=${gen}`
     + `&limit=151`
     + `&offset=${offset}`;
@@ -14,9 +15,9 @@ function getPokemonCollectionRequestUrl(offset, gen) {
 /**
   * Get all pokemon
   */
-export function getShinyCollection(token, offset = 0, gen, dispatch) {
+export function getShinyCollection(token, idUser, offset = 0, gen, dispatch) {
   dispatch({ type: 'LOAD_POKEMON_COLLECTION' });
-  const requestURL = getPokemonCollectionRequestUrl(offset, gen);
+  const requestURL = getPokemonCollectionRequestUrl(idUser, offset, gen);
 
   return request(requestURL, {
     method: 'GET',

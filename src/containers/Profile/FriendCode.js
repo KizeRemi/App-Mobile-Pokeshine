@@ -1,18 +1,22 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
 import { ProfileFriendCodeView } from '../../components/Views';
 import { TextFriendCode } from '../../components/Texts';
 
 class ProfileFriendCode extends PureComponent {
   static propTypes = {
-    friendCode: PropTypes.string.isRequired,
+    friendCode: PropTypes.string,
   };
 
   render () {
+    const { friendCode } = this.props;
     return (      
       <ProfileFriendCodeView>
-        <TextFriendCode>{this.props.friendCode}</TextFriendCode>
+        {friendCode ? (
+          <TextFriendCode>{friendCode}</TextFriendCode>
+        ) : (
+          <TextFriendCode>Code non fourni.</TextFriendCode>
+        )}
       </ProfileFriendCodeView>
     );
   }

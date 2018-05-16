@@ -2,6 +2,7 @@ import member from './member';
 import pokemon from './pokemon';
 import locale from './locale';
 import shiny from './shiny';
+import user from './user';
 
 const rehydrated = (state = false, action) => {
   switch (action.type) {
@@ -17,5 +18,6 @@ export default {
   member,
   pokemon,
   shiny,
+  user,
   locale,
 };

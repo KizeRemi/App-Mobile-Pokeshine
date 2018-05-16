@@ -19,6 +19,13 @@ export const Header = styled.View`
   background-color: #b3dbfd;
 `;
 
+export const HeaderHome = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40;
+`;
+
 export const NumbersContent = styled.View`
   flex: 1;
   flex-direction: row;
@@ -158,7 +165,6 @@ export const CollectorContent = styled.View`
   justify-content: center;
 `;
 
-
 export const ProgressGenerationContainer = styled.View`
   height: 100;
   background-color: #FFF;
@@ -167,4 +173,26 @@ export const ProgressGenerationContainer = styled.View`
   padding-horizontal: 10;
   padding-vertical: 10;
   border-radius: 5;
+`;
+
+export const TopUsersContainer = styled.View`
+  padding-horizontal: 30;
+  padding-vertical: 30;
+`;
+
+export const PodiumContainer = styled.View`
+  flex: 1;
+  height: 180;
+  flex-direction: row;
+  align-items: flex-end;
+`;
+
+export const PodiumView = styled.View`
+  background-color: #b3dbfd;
+  height: ${props => props.height && props.height};
+`;
+
+export const CenteredBloc = styled.View`
+  align-items: center;
+  justify-content: center;
 `;

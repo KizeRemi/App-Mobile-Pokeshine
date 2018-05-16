@@ -14,9 +14,9 @@ class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      age: props.member.age,
-      friendCode: props.member.friendCode,
-      region: props.member.region,
+      age: props.member.age || '',
+      friendCode: props.member.friendCode || '',
+      region: props.member.region || '',
     };
   }
 

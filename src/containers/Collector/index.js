@@ -28,12 +28,12 @@ class Collector extends Component {
 
   componentDidMount() {
     const { member, getShinyCollection } = this.props;
-    getShinyCollection(member.token, 0, this.state.generation);
+    getShinyCollection(member.token, member.id, 0, this.state.generation);
   }
 
   switchGeneration = (generation) => {
     const { member, getShinyCollection } = this.props;
-    getShinyCollection(member.token, 0, generation);
+    getShinyCollection(member.token, member.id, 0, generation);
     this.setState({ generation });
   }
 
@@ -69,7 +69,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getShinyCollection: (token, offset, gen) => getShinyCollection(token, offset, gen, dispatch),
+    getShinyCollection: (token, idUser, offset, gen) => getShinyCollection(token, idUser, offset, gen, dispatch),
   }
 };
 

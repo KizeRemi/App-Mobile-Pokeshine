@@ -61,7 +61,6 @@ export function updateAvatar(token, base64, dispatch) {
       Authorization: `Bearer ${token}`,
     },
   }).then((response) => {
-    console.log(response);
     dispatch({ type: 'LOAD_USER_DETAILS_CONNECTED_SUCCESS', data: response.data, token });
   });
 }

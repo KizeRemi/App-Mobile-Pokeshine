@@ -6,6 +6,12 @@ export const TextHeader = styled.Text`
   font-family: openSansBoldItalic;
 `;
 
+export const TitleHome = styled.Text`
+  color: #b3dbfd;
+  font-size: 24;
+  font-family: openSansBoldItalic;
+`;
+
 export const TextScroll = styled.Text`
   color: #fff;
   font-size: ${props => props.active ? '18' : '16'};
@@ -153,6 +159,18 @@ export const ProgressTitle = styled.Text`
 
 export const ProgressGenTitle = styled.Text`
   color: ${props => props.color && props.color };
+  font-size: 16;
+  font-family: openSansBoldItalic;
+`;
+
+export const NumberRank = styled.Text`
+  color: #FFF;
+  font-size: 16;
+  font-family: openSansBoldItalic;
+`;
+
+export const UsernameRank = styled.Text`
+  color: #b3dbfd;;
   font-size: 16;
   font-family: openSansBoldItalic;
 `;
