@@ -115,7 +115,7 @@ export const ProfileFriendCodeView = styled.View`
 export const ProfileTitleSettings = styled.View`
   width: 100%;
   align-items: center;
-  margin-vertical: 50;
+  margin-vertical: 20;
   padding-horizontal: 30;
 `;
 
@@ -182,7 +182,7 @@ export const TopUsersContainer = styled.View`
 
 export const PodiumContainer = styled.View`
   flex: 1;
-  height: 180;
+  height: 170;
   flex-direction: row;
   align-items: flex-end;
 `;
@@ -195,4 +195,44 @@ export const PodiumView = styled.View`
 export const CenteredBloc = styled.View`
   align-items: center;
   justify-content: center;
+`;
+
+export const UserRankContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const UsernameRankContainer = styled.View`
+  margin-horizontal: 15;
+  flex: 1;
+  justify-content: flex-start;
+`;
+
+export const NumberRankContainer = styled.View`
+  padding-horizontal: 10;
+  border-left-width: 2;
+  border-color: #efeef1;
+`;
+
+export const PokemonShinyContainer = styled.View`
+  padding-horizontal: 10;
+  padding-vertical: 10;
+  flex: 1;
+  border-radius: 5;
+  background-color: #30c7fe;
+  margin-vertical: 15;
+  flex-direction: row;
+`;
+
+export const HuntPanel = styled.View`
+  padding-horizontal: 10;
+  padding-vertical: 10;
+  border-radius: 5;
+  background-color: #30c7fe;
+  margin-bottom: 15;
+  margin-top: 5;
+  flex-direction: row;
+  margin-horizontal: 20;
 `;

@@ -6,6 +6,7 @@ const BASE_URI = 'http://www.pokeshine.remi-mavillaz.fr/index.php/api/v1'
   * Get User
   */
 export function getMe(token, dispatch) {
+  console.log('d');
   return request(`${BASE_URI}/users/me`, {
     method: 'GET',
     headers: {
@@ -16,7 +17,6 @@ export function getMe(token, dispatch) {
     dispatch({ type: 'LOAD_USER_DETAILS_CONNECTED_SUCCESS', data: response.data, token });
   });
 }
-
 
 /**
   * Update Profile

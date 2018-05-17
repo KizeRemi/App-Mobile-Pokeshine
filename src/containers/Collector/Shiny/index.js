@@ -31,17 +31,22 @@ class Shiny extends Component {
         {isLoading ? (
           <Text>Chargement en cours...</Text>
         ) : (
-          <View style={{ margin: 20 }}>
-            <TextShinyPageTitle>{`#${number} ${pokemon.name}`}</TextShinyPageTitle>
-            <SocialContent />
-            <Text style={{ marginTop: 15 }}>Medias</Text>
-            <Image style={{ marginVertical: 15,  width: '100%', height: 180 }} source={Img} />
-            <Measurement height={10} weight={55} />
-            <DescriptionBloc>
-              <TextTitleDescription>Description de la capture</TextTitleDescription>
-              <ShinyDescription>{shiny.description}</ShinyDescription>
-            </DescriptionBloc>
-          </View>
+          <Fragment>
+            {shiny.pokemon && (
+              <View style={{ margin: 20 }}>
+                <TextShinyPageTitle>{`#${number} ${pokemon.name}`}</TextShinyPageTitle>
+                <SocialContent />
+                <Text style={{ marginTop: 15 }}>Medias</Text>
+                <Image style={{ marginVertical: 15,  width: '100%', height: 180 }} source={Img} />
+                <Measurement height={10} weight={55} />
+                <DescriptionBloc>
+                  <TextTitleDescription>Description de la capture</TextTitleDescription>
+                  <ShinyDescription>{shiny.description}</ShinyDescription>
+                </DescriptionBloc>
+              </View>
+            )}
+          </Fragment>
+
         )}
 
       </BackgroundWhite>

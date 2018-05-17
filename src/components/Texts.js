@@ -10,6 +10,7 @@ export const TitleHome = styled.Text`
   color: #b3dbfd;
   font-size: 24;
   font-family: openSansBoldItalic;
+  margin-top: 50;
 `;
 
 export const TextScroll = styled.Text`
@@ -173,4 +174,45 @@ export const UsernameRank = styled.Text`
   color: #b3dbfd;;
   font-size: 16;
   font-family: openSansBoldItalic;
+`;
+
+export const UsernameLowRank = styled.Text`
+  color: #4A4A4A;
+  font-size: 16;
+  font-family: openSansBoldItalic;
+`;
+
+export const NumberLowRank = styled.Text`
+  color: #4A4A4A;
+  font-size: 22;
+  font-family: oswaldBold;
+  border-left-width: 2;
+  border-color: #efeef1;
+`;
+
+export const PokemonName = styled.Text`
+  color: #FFF;
+  font-size: 25;
+  font-family: openSansBoldItalic;
+`;
+
+export const PokemonGen = styled.Text`
+  color: #FFF;
+  font-size: 18;
+  font-family: openSansBoldItalic;
+`;
+
+export const PokemonRoad = styled.Text`
+  color: #FFF;
+  font-size: 24;
+  font-family: openSansBoldItalic;
+  margin-top: 60;
+`;
+
+export const TitlePanelHunt = styled.Text`
+  color:  #4A4A4A;
+  font-size: 16;
+  font-family: openSansBoldItalic;
+  margin-left: 20;
+  margin-top: 15;
 `;

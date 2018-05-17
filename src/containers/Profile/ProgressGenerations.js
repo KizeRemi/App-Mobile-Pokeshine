@@ -11,10 +11,6 @@ class ProgressGenerations extends Component {
     counterShinies: PropTypes.shape({}).isRequired,
   };
 
-  componentDidMount() {
-
-  }
-
   render() {
     const { counterShinies } = this.props;
     return ( 

@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
 import { BackgroundWhite, ProfileTitleSettings, InputContainer } from '../../../components/Views';
 import { TextTitleSettings, TextDescriptionSettings, TextLabel } from '../../../components/Texts';
 import { Input } from '../../../components/Inputs';
 
 import { newShiny } from '../../../actions/pokemon';
 import Button from '../../../components/Button';
+import Pokemon from './Pokemon';
 
 class NewShiny extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ class NewShiny extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { catchDate: '', description: '', youtube: '' };
+    this.state = { catchDate: '', description: '', youtube: '', tries: 0 };
   }
 
   handleChange = (name, val) => {
@@ -31,9 +31,10 @@ class NewShiny extends Component {
   }
 
   render() {
-    const { catchDate, description, youtube } = this.state;
+    const { catchDate, description, youtube, tries } = this.state;
     return (
-      <BackgroundWhite>        
+      <BackgroundWhite>
+        <Pokemon number={this.props.number}/>
         <ProfileTitleSettings>
           <TextTitleSettings>Ajouter un shiny</TextTitleSettings>
           <TextDescriptionSettings>Afin que votre shiny soit validé et bien visible, merci de donner un maximum d'informations.</TextDescriptionSettings>
@@ -64,6 +65,14 @@ class NewShiny extends Component {
             value={youtube}
             maxLength={20}
             onChangeText={v => this.handleChange('youtube', v)}
+          />
+          <TextLabel>Nombre d'essais</TextLabel>
+          <Input
+            autoCapitalize="none"
+            placeholder="Ex: 234"
+            value={tries.toString()}
+            maxLength={5}
+            onChangeText={v => this.handleChange('tries', v)}
           />
         </InputContainer>
         <Button label={'Ajouter'} onPress={this.submitForm} isLoading={this.props.isLoading} />

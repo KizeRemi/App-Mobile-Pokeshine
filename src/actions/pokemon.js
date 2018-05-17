@@ -39,8 +39,9 @@ export function newShiny(token, pokemon, formData, dispatch) {
   const {
     description,
     catchDate,
+    tries,
   } = formData;
-  const shiny = { pokemon, youtube, description, catchDate };
+  const shiny = { pokemon, youtube, description, catchDate, tries };
 
   dispatch({ type: 'NEW_SHINY' });
 
@@ -70,6 +71,24 @@ export function loadShiny(id, pokemon, dispatch) {
       'Content-Type': 'application/json',
     },
   }).then((response) => {
+    console.log('d',response);
     dispatch({ type: 'LOAD_SHINY_SUCCESS', data: response.data });
+  });
+}
+/**
+  * Load a pokemon
+  */
+export function loadPokemon(token, pokemonId, dispatch) {
+  dispatch({ type: 'LOAD_POKEMON' });
+
+  return request(`${BASE_URI}/pokemon/${pokemonId}`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((response) => {
+    dispatch({ type: 'LOAD_POKEMON_SUCCESS', data: response.data });
   });
 }

@@ -36,12 +36,17 @@ export default function pokemonReducer(state = initialState, action) {
     }
     case 'LOAD_SHINY_SUCCESS': {
       const { data } = action;
+      if(!data) {
+        return initialState;
+      }
+
       return {
         pokemon: data.pokemon,
         description: data.description,
         catchDate: data.catchDate,
         youtube: data.youtube,
         isLoading: false,
+        tries: data.tries,
         error: action.data,
       };
     }

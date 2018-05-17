@@ -11,7 +11,7 @@ import AppConfig from '../../constants/config';
 import withAuthentication from './../withAuthentication';
 import HomeComponent from '../../containers/Home';
 import CollectorComponent from '../../containers/Collector';
-import NewShinyComponent from '../../containers/Collector/NewShiny';
+import HuntingComponent from '../../containers/Collector/Hunting';
 import ShinyComponent from '../../containers/Collector/Shiny';
 import ProfileComponent from '../../containers/Profile';
 import SettingsComponent from '../../containers/Profile/Settings';
@@ -52,7 +52,7 @@ class RouterWrapper extends Component {
               {...DefaultProps.navbarProps}
             >
               <Scene hideNavBar key="collector" component={CollectorComponent} />
-              <Scene back key="newShiny" {...DefaultProps.navbarProps} component={NewShinyComponent} />
+              <Scene back key="hunting" {...DefaultProps.navbarProps} component={HuntingComponent} />
               <Scene back key="shiny" {...DefaultProps.navbarProps} component={ShinyComponent} />
             </Stack>
           </Tabs>

@@ -7,7 +7,6 @@ export default function userReducer(state = initialState, action) {
     case 'USER_LOGIN':
     case 'UPDATE_USER':
     case 'USER_SIGN_UP': {
-      console.log('dd');
       return {
         ...state,
         isLoading: true,
@@ -39,6 +38,7 @@ export default function userReducer(state = initialState, action) {
         nbrShinies: data.nbrShinies,
         avatar: data.avatar,
         token: action.token,
+        currentHunt: data.currentHunt,
       }
     }
     case 'USER_ERROR': {

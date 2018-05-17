@@ -23,7 +23,6 @@ class Home extends Component {
   render() {
     const { users } = this.props;
     const usersLeft = users.slice(3,10);
-    console.log(usersLeft);
     return (
       <TopUsersContainer>
         <PodiumContainer>

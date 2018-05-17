@@ -11,7 +11,7 @@ class NumberBloc extends PureComponent {
   }
 
   newShiny = () => {
-    Actions.newShiny({ number: this.props.number });
+    Actions.hunting({ number: this.props.number });
   }
 
   render() {

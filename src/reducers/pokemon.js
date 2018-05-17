@@ -20,16 +20,26 @@ export const initialState = {
     counterShinies: {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0},
     isLoading: false,
     error: null,
+    pokemon: null,
 };
 
 export default function pokemonReducer(state = initialState, action) {
   switch (action.type) {
+    case 'LOAD_POKEMON':
     case 'LOAD_POKEMON_COLLECTION': {
       return {
         ...state,
         isLoading: true,
         error: null,
       };
+    }
+    case 'LOAD_POKEMON_SUCCESS': {
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        pokemon: action.data,
+      }
     }
     case 'LOAD_POKEMON_COLLECTION_SUCCESS': {
       const range = PKMN_BY_GEN[action.gen - 1];
@@ -41,7 +51,7 @@ export default function pokemonReducer(state = initialState, action) {
         });
         if (shiny) {
           state.list[i] = shiny;
-          if (shiny.validate === true) {
+          if (shiny.validation) {
             counterShinies += 1;
           }
         } else {
@@ -58,6 +68,7 @@ export default function pokemonReducer(state = initialState, action) {
         list: state.list,
       };
     }
+    case 'LOAD_POKEMON_ERROR':
     case 'LOAD_POKEMON_COLLECTION_ERROR': {
       if (action.data) {
         return {

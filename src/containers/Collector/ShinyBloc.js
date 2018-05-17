@@ -21,7 +21,7 @@ class ShinyBloc extends PureComponent {
       <ShinyContent onPress={this.loadShiny}>
         <TextShinyTitle>#{pokemon.number} {pokemon.name}</TextShinyTitle>
         <View style={{ height: 45 }}></View>
-        {!shiny.validate && <TextShinyNotValide>En cours de validation</TextShinyNotValide>}
+        {!shiny.validation && <TextShinyNotValide>En cours de validation</TextShinyNotValide>}
       </ShinyContent>
     )
   }
