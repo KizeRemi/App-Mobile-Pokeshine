@@ -19,3 +19,21 @@ export function updateCurrentHunt(token, pokemonId, dispatch) {
     dispatch({ type: 'LOAD_USER_DETAILS_CONNECTED_SUCCESS', data: response.data, token });
   });
 }
+
+/**
+  * Add a current hunt
+  */
+export function updateCurrentTries(token, nbrTries, dispatch) {
+  
+  return request(`${BASE_URI}/users/tries`, {
+    method: 'PATCH',
+    body: JSON.stringify({ currentTries: nbrTries + 1 }),
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((response) => {
+    dispatch({ type: 'LOAD_USER_DETAILS_CONNECTED_SUCCESS', data: response.data, token });
+  });
+}

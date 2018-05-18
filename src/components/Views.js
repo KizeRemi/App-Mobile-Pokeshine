@@ -231,8 +231,17 @@ export const HuntPanel = styled.View`
   padding-vertical: 10;
   border-radius: 5;
   background-color: #30c7fe;
-  margin-bottom: 15;
-  margin-top: 5;
   flex-direction: row;
-  margin-horizontal: 20;
+`;
+
+export const TriesContainer = styled.View`
+  padding-horizontal: 10;
+  padding-vertical: 10;
+  margin-horizontal: 25;
+  border-radius: 5;
+  top: -5;
+  border-width: 1;
+  border-color: #30c7fe;
+  flex-direction: row;
+  justify-content: space-between;
 `;

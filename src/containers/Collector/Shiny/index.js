@@ -37,18 +37,16 @@ class Shiny extends Component {
                 <TextShinyPageTitle>{`#${number} ${pokemon.name}`}</TextShinyPageTitle>
                 <SocialContent />
                 <Text style={{ marginTop: 15 }}>Medias</Text>
-                <Image style={{ marginVertical: 15,  width: '100%', height: 180 }} source={Img} />
+                <Image style={{ marginVertical: 15,  width: '100%', height: 180 }} source={{uri: 'http://www.pokeshine.remi-mavillaz.fr/uploads/shinies/' + shiny.image }} />
                 <Measurement height={10} weight={55} />
                 <DescriptionBloc>
                   <TextTitleDescription>Description de la capture</TextTitleDescription>
-                  <ShinyDescription>{shiny.description}</ShinyDescription>
+                  <ShinyDescription>{shiny.description ? shiny.description : 'Aucune description disponible'}</ShinyDescription>
                 </DescriptionBloc>
               </View>
             )}
           </Fragment>
-
         )}
-
       </BackgroundWhite>
     )
   }

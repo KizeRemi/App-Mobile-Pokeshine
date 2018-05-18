@@ -39,6 +39,7 @@ export default function userReducer(state = initialState, action) {
         avatar: data.avatar,
         token: action.token,
         currentHunt: data.currentHunt,
+        currentTries: data.currentTries,
       }
     }
     case 'USER_ERROR': {

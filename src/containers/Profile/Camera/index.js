@@ -41,9 +41,9 @@ class CameraScreen extends Component {
         type={this.state.type}
       >
         <TouchableOpacity
-            style={{ flex: 0.3, alignSelf: 'flex-end' }}
-            onPress={this.takePicture}>
-            <Text style={{ color: '#FFF' }}> SNAP </Text>
+          style={{ flex: 0.3, alignSelf: 'flex-end' }}
+          onPress={this.takePicture}>
+          <Text style={{ color: '#FFF' }}> SNAP </Text>
         </TouchableOpacity>
       </Camera>   
     )

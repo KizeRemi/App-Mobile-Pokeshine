@@ -206,7 +206,7 @@ export const PokemonRoad = styled.Text`
   color: #FFF;
   font-size: 24;
   font-family: openSansBoldItalic;
-  margin-top: 60;
+  margin-top: 10;
 `;
 
 export const TitlePanelHunt = styled.Text`
@@ -215,4 +215,16 @@ export const TitlePanelHunt = styled.Text`
   font-family: openSansBoldItalic;
   margin-left: 20;
   margin-top: 15;
+`;
+
+export const TriesText = styled.Text`
+  color: #30c7fe;
+  font-size: 28;
+  font-family: openSansRegular;
+`;
+
+export const TriesLabel = styled.Text`
+  color: #30c7fe;
+  font-size: 12;
+  font-family: openSansRegular;
 `;

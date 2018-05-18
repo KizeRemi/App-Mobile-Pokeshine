@@ -8,6 +8,8 @@ import { Input } from '../../../components/Inputs';
 import { newShiny } from '../../../actions/pokemon';
 import Button from '../../../components/Button';
 import Pokemon from './Pokemon';
+import { Permissions, ImagePicker } from 'expo';
+import { TouchableOpacity, Text } from 'react-native';
 
 class NewShiny extends Component {
   static propTypes = {
@@ -18,7 +20,12 @@ class NewShiny extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { catchDate: '', description: '', youtube: '', tries: 0 };
+    this.state = { permissionsGranted: false, catchDate: '', description: '', youtube: '', tries: 0, image: null };
+  }
+
+  async componentDidMount() {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    this.setState({ permissionsGranted: status === 'granted' });
   }
 
   handleChange = (name, val) => {
@@ -28,6 +35,13 @@ class NewShiny extends Component {
   submitForm = () => {
     const { token, number, newShiny } = this.props;
     newShiny(token, number, this.state);
+  }
+
+  takePicture = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({ base64: true, aspect: [3, 4] });
+    if (!result.cancelled) {
+      this.setState({ image: result.base64 });
+    }
   }
 
   render() {
@@ -40,6 +54,10 @@ class NewShiny extends Component {
           <TextDescriptionSettings>Afin que votre shiny soit validé et bien visible, merci de donner un maximum d'informations.</TextDescriptionSettings>
         </ProfileTitleSettings>
         <InputContainer>
+          <TouchableOpacity
+            onPress={this.takePicture}>
+            <Text> Ajouter une photo </Text>
+          </TouchableOpacity>
           <TextLabel>Date de capture</TextLabel>
           <Input
             autoCapitalize="none"

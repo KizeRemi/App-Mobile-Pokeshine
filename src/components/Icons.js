@@ -24,3 +24,9 @@ export const TrophyIcon = styled.Text`
   font-size: 28;
   font-family: faSolid;
 `;
+
+export const AddIcon = styled.Text`
+  color: ${props => props.color && props.color };
+  font-size: 40;
+  font-family: faSolid;
+`;

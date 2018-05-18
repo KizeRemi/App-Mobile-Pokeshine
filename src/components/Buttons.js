@@ -36,3 +36,8 @@ export const SocialButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
 `;
+
+export const AddTryButton = styled.TouchableOpacity`
+  flex: 1;
+  align-items: center;
+`;

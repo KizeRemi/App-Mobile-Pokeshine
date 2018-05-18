@@ -1,4 +1,5 @@
 import request from './utils';
+import { Platform } from 'react-native';
 
 const BASE_URI = 'http://www.pokeshine.remi-mavillaz.fr/index.php/api/v1'
 
@@ -35,13 +36,16 @@ export function getShinyCollection(token, idUser, offset = 0, gen, dispatch) {
   * Add a new shiny
   */
 export function newShiny(token, pokemon, formData, dispatch) {
-  const youtube = formData.youtube && `www.youtube.com/watch?v=${formData.youtube}`;
   const {
     description,
     catchDate,
     tries,
+    image
   } = formData;
-  const shiny = { pokemon, youtube, description, catchDate, tries };
+  const youtube = formData.youtube && `www.youtube.com/watch?v=${formData.youtube}`;
+  const base = Platform.OS === 'android' ? image.replace(/\n|\r/g, "") : image;
+
+  const shiny = { pokemon, youtube, description, catchDate, tries, image: 'data:image/jpeg;base64,' + base };
 
   dispatch({ type: 'NEW_SHINY' });
 
@@ -71,10 +75,10 @@ export function loadShiny(id, pokemon, dispatch) {
       'Content-Type': 'application/json',
     },
   }).then((response) => {
-    console.log('d',response);
     dispatch({ type: 'LOAD_SHINY_SUCCESS', data: response.data });
   });
 }
+
 /**
   * Load a pokemon
   */

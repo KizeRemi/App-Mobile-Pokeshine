@@ -46,6 +46,7 @@ export default function pokemonReducer(state = initialState, action) {
         catchDate: data.catchDate,
         youtube: data.youtube,
         isLoading: false,
+        image: data.image,
         tries: data.tries,
         error: action.data,
       };
