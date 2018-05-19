@@ -5,6 +5,8 @@ import configureStore from './src/store/index';
 import OpenSansBoldItalic from './src/fonts/OpenSans-ExtraBoldItalic.ttf';
 import OswaldBold from './src/fonts/Oswald-Bold.ttf';
 import OpenSansRegular from './src/fonts/OpenSans-Regular.ttf';
+import OpenSansLight from './src/fonts/OpenSans-Light.ttf';
+import OpenSansBold from './src/fonts/OpenSans-Bold.ttf';
 import FontAwesomeRegular from './src/fonts/fa-regular-400.ttf';
 import FontAwesomeSolid from './src/fonts/fa-solid-900.ttf';
 import FontAwesomeBrands from './src/fonts/fa-brands-400.ttf';
@@ -24,6 +26,8 @@ export default class App extends React.Component {
         'openSansBoldItalic': OpenSansBoldItalic,
         'oswaldBold': OswaldBold,
         'openSansRegular': OpenSansRegular,
+        'openSansBold': OpenSansBold,
+        'openSansLight': OpenSansLight,
         'faRegular': FontAwesomeRegular,
         'faSolid': FontAwesomeSolid,
         'faBrands': FontAwesomeBrands,

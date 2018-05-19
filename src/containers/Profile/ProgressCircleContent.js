@@ -36,6 +36,7 @@ class ProgressGenerations extends PureComponent {
           thickness={8}
           progress={this.calculProgression()}
           style={{ marginBottom: 10, marginHorizontal: 5 }}
+          borderWidth={2}
           color={color}
           showsText
           formatText={this.formatText}

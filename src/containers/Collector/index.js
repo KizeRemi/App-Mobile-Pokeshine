@@ -10,7 +10,6 @@ import ShinyBloc from './ShinyBloc';
 import NumberBloc from './NumberBloc';
 import ProgressGeneration from './ProgressGeneration';
 
-
 import { PKMN_BY_GEN } from './constants';
 
 

@@ -27,10 +27,10 @@ class ScrollGen extends PureComponent {
         <ButtonGen onClick={this.onClick} active={activeGen === 1} gen={1} text="Kanto" />
         <ButtonGen onClick={this.onClick} active={activeGen === 2} gen={2} text="Johto" />
         <ButtonGen onClick={this.onClick} active={activeGen === 3} gen={3} text="Hoenn" />
-        <ButtonGen onClick={this.onClick} active={activeGen === 4} gen={4} text="Gen 4" />
-        <ButtonGen onClick={this.onClick} active={activeGen === 5} gen={5} text="Gen 5" />
-        <ButtonGen onClick={this.onClick} active={activeGen === 6} gen={6} text="Gen 6" />
-        <ButtonGen onClick={this.onClick} active={activeGen === 7} gen={7} text="Gen 7" />
+        <ButtonGen onClick={this.onClick} active={activeGen === 4} gen={4} text="Sinnoh" />
+        <ButtonGen onClick={this.onClick} active={activeGen === 5} gen={5} text="Unys" />
+        <ButtonGen onClick={this.onClick} active={activeGen === 6} gen={6} text="Kalos" />
+        <ButtonGen onClick={this.onClick} active={activeGen === 7} gen={7} text="Alola" />
       </ScrollView>
     )
   }

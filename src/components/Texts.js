@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const blue = '#05a6e1';
+
 export const TextHeader = styled.Text`
   color: #fff;
   font-size: 20;
@@ -57,10 +59,24 @@ export const TextDescription = styled.Text`
   margin-vertical: 10;
 `;
 
+export const TextRegion = styled.Text`
+  color: #05a6e1;
+  font-size: 23;
+  font-family: openSansLight;
+  margin-top: 18;
+`;
+
+export const TextYear = styled.Text`
+  color: #05a6e1;
+  font-size: 18;
+  font-family: openSansLight;
+  margin-top: 10;
+`;
+
 export const TextFriendCode = styled.Text`
-  color: #A09F9F;
-  font-size: 20;
-  font-family: oswaldBold;
+  color: #FFF;
+  font-size: 26;
+  font-family: openSansBold;
 `;
 
 export const TextTitleSettings = styled.Text`
@@ -227,4 +243,17 @@ export const TriesLabel = styled.Text`
   color: #30c7fe;
   font-size: 12;
   font-family: openSansRegular;
+`;
+
+export const ShinyPictureLabel = styled.Text`
+  color: #4A4A4A;
+  font-size: 14;
+  font-family: openSansRegular;
+  margin-horizontal: 10;
+`;
+
+export const UpdateProfileText = styled.Text`
+  color: ${blue};
+  font-size: 15;
+  font-family: openSansLight;
 `;

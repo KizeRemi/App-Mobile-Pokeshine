@@ -68,6 +68,14 @@ export default function pokemonReducer(state = initialState, action) {
         list: state.list,
       };
     }
+    case 'ADD_SHINY_SUCCESS': {
+      const { shiny } = action.data;
+      state.list[shiny.number] = shiny;
+      return {
+        ...state,
+        list: state.list,
+      };
+    }
     case 'LOAD_POKEMON_ERROR':
     case 'LOAD_POKEMON_COLLECTION_ERROR': {
       if (action.data) {

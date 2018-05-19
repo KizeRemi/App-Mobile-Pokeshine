@@ -38,6 +38,7 @@ export default function userReducer(state = initialState, action) {
         nbrShinies: data.nbrShinies,
         avatar: data.avatar,
         token: action.token,
+        description: data.description,
         currentHunt: data.currentHunt,
         currentTries: data.currentTries,
       }

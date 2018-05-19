@@ -33,3 +33,12 @@ export const ImageReward = styled.Image`
   margin-horizontal: 5;
   margin-vertical: 5;
 `;
+
+export const BackgroundPokeball = styled.Image`
+  width: 250;
+  height:  250;
+  flex: 1;
+  position: absolute;
+  top: -75;
+  right: -25;
+`;

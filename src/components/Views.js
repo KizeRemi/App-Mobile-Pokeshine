@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const blue = '#82daf2';
+
 export const Background = styled.ScrollView`
   flex: 1;
   background-color: #efeef1;
@@ -16,7 +18,7 @@ export const Header = styled.View`
   justify-content: center;
   align-items: center;
   height: 50;
-  background-color: #b3dbfd;
+  background-color: ${blue};
 `;
 
 export const HeaderHome = styled.View`
@@ -66,11 +68,16 @@ export const ProfileBlocContainer = styled.View`
   border-color: #efeef1;
 `;
 
+export const ProfileUserInformations = styled.View`
+  flex: 1;
+  align-items: flex-end;
+  margin-horizontal: 30;
+`;
+
 export const ProfileProgressContainer = styled.View`
   flex: 1;
   align-items: center;
   background-color: #FFF;
-  margin-horizontal: 15;
   margin-vertical: 10;
   padding-right: 10;
   padding-vertical: 10;
@@ -98,18 +105,6 @@ export const ProfileIconView = styled.View`
   justify-content: center;
   border-right-width: 2;
   border-right-color: #efeef1;
-`;
-
-
-export const ProfileFriendCodeView = styled.View`
-  flex: 1;
-  background-color: #FFF;
-  border-radius: 5;
-  align-items: center;
-  justify-content: center;
-  margin-horizontal: 15;
-  margin-vertical: 10;
-  padding-vertical: 15;
 `;
 
 export const ProfileTitleSettings = styled.View`
@@ -244,4 +239,9 @@ export const TriesContainer = styled.View`
   border-color: #30c7fe;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+export const ButtonCenter = styled.View`
+  width: 100%;
+  align-items: center;
 `;

@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View, TouchableOpacity, Text } from 'react-native';
 import { LinearGradient } from 'expo';
 import { TextUsername, TextRank } from '../../components/Texts';
-import { UpdateIcon } from '../../components/Icons';
+import { BackgroundPokeball } from '../../components/Images';
+
 import { Camera, Permissions, ImagePicker } from 'expo';
-import { Actions } from 'react-native-router-flux';
 import Avatar from './Avatar';
+import Pokeball from '../../images/pokeball.png';
 
 class ProfileHeader extends PureComponent {
   static propTypes = {
@@ -16,19 +16,15 @@ class ProfileHeader extends PureComponent {
   render () {
     const { member } = this.props;
     return (      
-      <View
-        style={{ width: '100%', paddingVertical: 30, backgroundColor: '#b3dbfd', alignItems: 'center', height: 250 }}
+      <LinearGradient
+        colors={['#82daf2', '#2ec4fe', '#26c1fb']}
+        style={{ width: '100%', paddingVertical: 50, alignItems: 'center', height: 280 }}
       >
+        <BackgroundPokeball source={Pokeball} />
         <Avatar member={member} />
-        <View style={{ flex: 1, flexDirection: 'row', margin: 0 }}>
-          <TextUsername>{member.username.toUpperCase()} 
-          </TextUsername>
-          <TouchableOpacity style={{ marginLeft: 5 }}  onPress={Actions.settings}>
-            <UpdateIcon></UpdateIcon>
-          </TouchableOpacity>   
-        </View>
+        <TextUsername>{member.username.toUpperCase()}</TextUsername>
         <TextRank>Shiny hunter confirmé</TextRank>
-      </View>
+      </LinearGradient>
     );
   }
 }

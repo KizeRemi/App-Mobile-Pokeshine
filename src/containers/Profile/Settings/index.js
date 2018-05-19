@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity, View, Text, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { BackgroundWhite, ProfileTitleSettings, InputContainer } from '../../../components/Views';
-import { Input } from '../../../components/Inputs';
+import { Input, Textarea } from '../../../components/Inputs';
 import { TextTitleSettings, TextDescriptionSettings, TextLabel } from '../../../components/Texts';
 import Button from '../../../components/Button';
 
@@ -17,6 +17,7 @@ class Settings extends Component {
       age: props.member.age || '',
       friendCode: props.member.friendCode || '',
       region: props.member.region || '',
+      description: props.member.description || '',
     };
   }
 
@@ -37,12 +38,12 @@ class Settings extends Component {
   }
 
   render() {
-    const { age, friendCode, region } = this.state;
+    const { age, friendCode, region, description } = this.state;
     return (
       <BackgroundWhite>
         <ProfileTitleSettings>
           <TextTitleSettings>Mettre à jour mon profil</TextTitleSettings>
-          <TextDescriptionSettings>Un profil bien rempli est un profil susceptible d'être vu.</TextDescriptionSettings>
+          <TextDescriptionSettings>Un profil bien rempli est un profil plus susceptible d'être vu.</TextDescriptionSettings>
         </ProfileTitleSettings>
         <InputContainer>
           <TextLabel>Ton âge</TextLabel>
@@ -70,6 +71,16 @@ class Settings extends Component {
               maxLength={12}
               value={friendCode.toString()}
               onChangeText={v => this.handleChange('friendCode', v)}
+          />
+          <TextLabel>Parle-nous un peu de toi !</TextLabel>
+          <Textarea
+              placeholder="Parle-nous un peu de toi !"
+              multiline
+              editable
+              numberOfLines={4}
+              value={description}
+              maxLength={255}
+              onChangeText={v => this.handleChange('description', v)}
           />
         </InputContainer>
         <Button label={'Mettre à jour'} onPress={this.submitForm} isLoading={this.props.member.isLoading} />

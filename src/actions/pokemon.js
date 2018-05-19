@@ -43,9 +43,13 @@ export function newShiny(token, pokemon, formData, dispatch) {
     image
   } = formData;
   const youtube = formData.youtube && `www.youtube.com/watch?v=${formData.youtube}`;
-  const base = Platform.OS === 'android' ? image.replace(/\n|\r/g, "") : image;
-
-  const shiny = { pokemon, youtube, description, catchDate, tries, image: 'data:image/jpeg;base64,' + base };
+  let base = null;
+  console.log(image);
+  if (image) {
+    base = Platform.OS === 'android' ? image.replace(/\n|\r/g, "") : image;
+    base = 'data:image/jpeg;base64,' + base;
+  }
+  const shiny = { pokemon, youtube, description, catchDate, tries, image: base };
 
   dispatch({ type: 'NEW_SHINY' });
 
@@ -59,6 +63,7 @@ export function newShiny(token, pokemon, formData, dispatch) {
     },
   }).then((response) => {
     dispatch({ type: 'NEW_SHINY_SUCCESS', data: response.data });
+    dispatch({ type: 'ADD_SHINY_SUCCESS', data: response.data });
   });
 }
 

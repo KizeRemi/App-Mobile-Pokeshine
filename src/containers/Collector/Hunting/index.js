@@ -2,14 +2,16 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BackgroundWhite, ProfileTitleSettings, InputContainer } from '../../../components/Views';
-import { TextTitleSettings, TextDescriptionSettings, TextLabel } from '../../../components/Texts';
+import { TextTitleSettings, TextDescriptionSettings, TextLabel, ShinyPictureLabel } from '../../../components/Texts';
+import { ShinyPictureButton } from '../../../components/Buttons';
 import { Input } from '../../../components/Inputs';
+import { PictureIcon, PictureOkIcon } from '../../../components/Icons';
+import { Actions } from 'react-native-router-flux';
 
 import { newShiny } from '../../../actions/pokemon';
 import Button from '../../../components/Button';
 import Pokemon from './Pokemon';
 import { Permissions, ImagePicker } from 'expo';
-import { TouchableOpacity, Text } from 'react-native';
 
 class NewShiny extends Component {
   static propTypes = {
@@ -35,6 +37,7 @@ class NewShiny extends Component {
   submitForm = () => {
     const { token, number, newShiny } = this.props;
     newShiny(token, number, this.state);
+    Actions.collector();
   }
 
   takePicture = async () => {
@@ -45,7 +48,7 @@ class NewShiny extends Component {
   }
 
   render() {
-    const { catchDate, description, youtube, tries } = this.state;
+    const { catchDate, description, youtube, tries, image } = this.state;
     return (
       <BackgroundWhite>
         <Pokemon number={this.props.number}/>
@@ -54,10 +57,11 @@ class NewShiny extends Component {
           <TextDescriptionSettings>Afin que votre shiny soit validé et bien visible, merci de donner un maximum d'informations.</TextDescriptionSettings>
         </ProfileTitleSettings>
         <InputContainer>
-          <TouchableOpacity
-            onPress={this.takePicture}>
-            <Text> Ajouter une photo </Text>
-          </TouchableOpacity>
+          <ShinyPictureButton onPress={this.takePicture}>
+            <PictureIcon></PictureIcon>
+            <ShinyPictureLabel> Ajouter une photo </ShinyPictureLabel>
+            {image && <PictureOkIcon></PictureOkIcon>}
+          </ShinyPictureButton>
           <TextLabel>Date de capture</TextLabel>
           <Input
             autoCapitalize="none"

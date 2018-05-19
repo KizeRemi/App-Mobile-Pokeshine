@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const blue = '#82daf2';
+
 export const ScrollButton = styled.TouchableOpacity`
   width: 80;
   justify-content: center;
@@ -40,4 +42,28 @@ export const SocialButton = styled.TouchableOpacity`
 export const AddTryButton = styled.TouchableOpacity`
   flex: 1;
   align-items: center;
+`;
+
+export const ShinyPictureButton = styled.TouchableOpacity`
+  align-items: center;
+  height: 50;
+  width: 100%;
+  border-width: 1;
+  border-radius: 5;
+  margin-vertical: 15;
+  justify-content: center;
+  flex-direction: row;
+`;
+
+export const UpdateProfileButton = styled.TouchableOpacity`
+  align-items: center;
+  flex-direction: row;
+  height: 40;
+  width: 230;
+  borderWidth: 2;
+  borderRadius: 20;
+  justify-content: center;
+  top: -20;
+  border-color: ${blue};
+  background-color: #FFF;
 `;
