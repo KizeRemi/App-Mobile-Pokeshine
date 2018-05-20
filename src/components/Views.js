@@ -178,6 +178,10 @@ export const MeasurementBloc = styled.View`
   align-items: center;
   margin-vertical: 30;
 `;
+export const TryBloc = styled.View`
+  flex: 1;
+  align-items: center;
+`;
 
 export const DescriptionBloc = styled.View`
   flex: 1;

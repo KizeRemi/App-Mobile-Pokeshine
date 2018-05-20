@@ -37,6 +37,10 @@ export function getTypeIcon(type) {
       return { icon: ElectricIcon, colors: ['#feb21b', '#febb34', '#fed480']};
     case 'Fée':
       return { icon: FairyIcon, colors: ['#ed92ed', '#f0a8f0', '#f4bef4']};
+    case 'Acier':
+      return { icon: SteelIcon, colors: ['#b1b1c3', '#b7b7c8', '#c5c5d3']};
+    case 'Ténèbres':
+      return { icon: DarkIcon, colors: ['#4d392c', '#614838', '#82604a']};
     default:
       return { icon: NormalIcon, colors: ['#c7c1b9', '#d2cdc6', '#ddd9d5']};
   }

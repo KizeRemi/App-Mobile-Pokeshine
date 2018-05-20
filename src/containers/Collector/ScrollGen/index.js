@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import ButtonGen from './ButtonGen';
+
+import { POKESHINE_COLORS_GEN }from './constants';
 
 class ScrollGen extends PureComponent {
   static propTypes = {
@@ -22,7 +24,7 @@ class ScrollGen extends PureComponent {
     const { switchGeneration } = this.props;
     const { activeGen } = this.state;
     return (
-      <ScrollView style={{ backgroundColor: '#b3dbfd', height: 50 }} horizontal>
+      <ScrollView style={{ backgroundColor: POKESHINE_COLORS_GEN[activeGen], height: 50 }} horizontal>
         <ButtonGen onClick={this.onClick} active={activeGen === 1} gen={1} text="Kanto" />
         <ButtonGen onClick={this.onClick} active={activeGen === 2} gen={2} text="Johto" />
         <ButtonGen onClick={this.onClick} active={activeGen === 3} gen={3} text="Hoenn" />

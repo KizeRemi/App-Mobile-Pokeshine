@@ -43,13 +43,13 @@ class Collector extends Component {
     return (
       <Background>
         <ScrollGen switchGeneration={this.switchGeneration} />
-        <ProgressGeneration counter={counterShinies[generation]} total={range.end - range.start} />
+        <ProgressGeneration generation={generation} counter={counterShinies[generation]} total={range.end - range.start} />
         <CollectorContent>
-        {shiniesByGen.map((shiny, index) =>
-          <Fragment key={index}>
-            {typeof shiny === 'object' ? <ShinyBloc shiny={shiny} /> : <NumberBloc number={shiny} />}
-          </Fragment>
-        )}
+          {shiniesByGen.map((shiny, index) =>
+            <Fragment key={index}>
+              {typeof shiny === 'object' ? <ShinyBloc shiny={shiny} /> : <NumberBloc number={shiny} />}
+            </Fragment>
+          )}
         </CollectorContent>
       </Background>   
     )

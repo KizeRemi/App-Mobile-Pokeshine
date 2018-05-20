@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View } from 'react-native';
-import { ProgressGenerationContainer } from '../../components/Views';
+import { ProgressGenerationContainer, CenteredBloc } from '../../components/Views';
 import { ProgressBar, ProgressBarTitle } from '../../components/Texts';
 import * as Progress from 'react-native-progress';
+
+import { POKESHINE_COLORS_GEN }from './ScrollGen/constants';
 
 class ProgressGeneration extends PureComponent {
   static propTypes = {
     counter: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
+    generation: PropTypes.number.isRequired,
   }
 
   calculProgression = () => {
@@ -17,14 +19,20 @@ class ProgressGeneration extends PureComponent {
   }
 
   render() {
-    const { counter, total } = this.props;
+    const { counter, total, generation } = this.props;
     return (
       <ProgressGenerationContainer>
         <ProgressBarTitle>Progression sur cette génération</ProgressBarTitle>
-        <Progress.Bar style={{ marginTop: 10 }} progress={this.calculProgression()} width={null} height={18} />
-        <View style={{ flex: 1, alignItems: 'center' }}>
-          <ProgressBar> {counter} / {total}</ProgressBar>
-        </View>
+        <Progress.Bar
+          borderWidth={2}
+          color={POKESHINE_COLORS_GEN[generation]}
+          progress={this.calculProgression()}
+          width={null}
+          height={18}
+        />
+        <CenteredBloc>
+          <ProgressBar color={POKESHINE_COLORS_GEN[generation]}>{counter} / {total}</ProgressBar>
+        </CenteredBloc>
       </ProgressGenerationContainer>
     )
   }

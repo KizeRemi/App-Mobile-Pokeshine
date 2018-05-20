@@ -86,7 +86,6 @@ export const TextLabel = styled.Text`
   margin-bottom: 5;
 `;
 
-
 export const TextSubmit = styled.Text`
   color: #FFF;
   font-size: 18;
@@ -100,8 +99,8 @@ export const TextNumberCollector = styled.Text`
 `;
 
 export const TextShinyTitle = styled.Text`
-  color: #4A4A4A;
-  font-size: 16;
+  color: ${props => props.color && props.color};
+  font-size: 18;
   font-family: openSansBoldItalic;
 `;
 
@@ -142,26 +141,33 @@ export const TextTitleDescription = styled.Text`
 `;
 
 export const ShinyDescription = styled.Text`
-  color: #A09F9F;
-  font-size: 14;
+  color: #FFF;
+  font-size: 16;
   margin-top: 5;
-  font-family: openSansRegular;
+  font-family: openSansBoldItalic;
 `;
 
 export const ProgressBarTitle = styled.Text`
   color: #4A4A4A;
   font-size: 16;
   font-family: openSansBoldItalic;
+  margin-bottom: 5;
 `;
 
 export const ProgressBar = styled.Text`
-  color: #b3dbfd;
+  color: ${props => props.color && props.color};
   font-size: 16;
   font-family: oswaldBold;
 `;
 
 export const ProgressTitle = styled.Text`
-  color: #b3dbfd;
+  color: #515151;
+  font-size: 16;
+  font-family: oswaldBold;
+  margin-bottom: 10;
+`;
+export const TextInProgress = styled.Text`
+  color: #9F9FAD;
   font-size: 16;
   font-family: oswaldBold;
   margin-bottom: 10;
@@ -265,7 +271,7 @@ export const CatchDateText = styled.Text`
 
 export const TitleLoginText = styled.Text`
   color: #FFF;
-  font-size: 18;
+  font-size: 16;
   font-family: openSansRegular;
   letter-spacing: 1;
 `;
@@ -280,4 +286,10 @@ export const BackLoginText = styled.Text`
   color: #FFF;
   font-size: 16;
   font-family: openSansRegular;
+`;
+
+export const LoadingText = styled.Text`
+color: #4A4A4A;
+font-size: 16;
+font-family: openSansBoldItalic;
 `;

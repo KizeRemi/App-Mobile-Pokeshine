@@ -1,31 +1,20 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
-import { ProfileBlocContainer, ProfileIconView, ProfileBlocContent, RewardsContent } from '../../components/Views';
-import { TextCategoryTitle, TextDescription } from '../../components/Texts';
-import { ProfileIcons } from '../../components/Icons';
-import { ImageReward } from '../../components/Images';
-import Badge from '../../images/badge.png';
+import { ProfileProgressContainer, ProfileProgressContent, RewardsContent } from '../../components/Views';
+import { ProgressTitle, TextInProgress } from '../../components/Texts';
 
 class ProfileRewards extends PureComponent {
 
   render () {
 		const { nbrShinies } = this.props;
     return (      
-      <ProfileBlocContainer>
-        <ProfileIconView>
-          <ProfileIcons></ProfileIcons>
-        </ProfileIconView>
-        <ProfileBlocContent>
-          <TextCategoryTitle>Dernières récompenses</TextCategoryTitle>
-          <RewardsContent>
-            <ImageReward source={Badge} />
-            <ImageReward source={Badge} />
-            <ImageReward source={Badge} />
-            <ImageReward source={Badge} />
-          </RewardsContent>
-        </ProfileBlocContent>
-      </ProfileBlocContainer>
+      <ProfileProgressContainer>
+        <ProgressTitle>Dernières récompenses</ProgressTitle>
+        <ProfileProgressContent>
+          <TextInProgress>Work in progress...</TextInProgress>
+        </ProfileProgressContent>
+      </ProfileProgressContainer>
     );
   }
 }

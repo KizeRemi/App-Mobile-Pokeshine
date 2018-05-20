@@ -17,7 +17,7 @@ class Measurement extends Component {
 
   render() {
     const  { weight, height, color } = this.props;
-    return (    
+    return (
       <MeasurementContainer>
         <MeasurementBloc>
           <View style={{ flex: 1, flexDirection: 'row' }}>

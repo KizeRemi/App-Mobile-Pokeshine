@@ -2,16 +2,16 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo';
-import { BackgroundWhite } from '../../../components/Views';
+import { BackgroundWhite, CenteredBloc } from '../../../components/Views';
 import { BackgroundType, ShinyImage } from '../../../components/Images';
-
+import { ShinyDescription, LoadingText } from '../../../components/Texts';
 import { loadShiny } from '../../../actions/pokemon';
-import { Text, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { getTypeIcon } from '../../../utils/Types';
+
 import Measurement from './Measurement';
 import Tries from './Tries';
 import CatchDate from './CatchDate';
-import { getTypeIcon } from '../../../utils/Types';
 import NoImage from '../../../images/no-image.png';
 
 class Shiny extends Component {
@@ -43,7 +43,7 @@ class Shiny extends Component {
     return (
       <BackgroundWhite>
         {isLoading ? (
-          <Text>Chargement en cours...</Text>
+          <LoadingText>Chargement en cours...</LoadingText>
         ) : (
           <Fragment>
             {shiny.pokemon ? (
@@ -53,18 +53,19 @@ class Shiny extends Component {
               > 
                 {shiny.pokemon.pokemonTypes[0].name && <BackgroundType source={assets.icon} />}
                 <Tries tries={shiny.tries} color={assets.colors[0]}/>
-                <View style={{ flex: 1, alignItems: 'center' }}>
+                <CenteredBloc>
                   <CatchDate catchDate={shiny.catchDate} color={assets.colors[0]} />
                   {shiny.image ? (
                     <ShinyImage source={{uri: 'http://www.pokeshine.remi-mavillaz.fr/uploads/shinies/' + shiny.image }} />
-                  ): (
+                  ) : (
                     <ShinyImage source={NoImage} />
                   )}
                   <Measurement color={assets.colors[0]} height={10} weight={55} />
-                </View>
+                  <ShinyDescription>{shiny.description}</ShinyDescription>
+                </CenteredBloc>
               </LinearGradient>
             ) : (
-              <Text>Aucun shiny</Text>
+              <LoadingText>Aucun shiny</LoadingText>
             )}
           </Fragment>
         )}

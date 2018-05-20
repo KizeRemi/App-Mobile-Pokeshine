@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View } from 'react-native';
 import { ShinyContent } from '../../components/Buttons';
 import { TextShinyTitle, TextShinyNotValide } from '../../components/Texts';
+import { ImageShinyList } from '../../components/Images';
 import { Actions } from 'react-native-router-flux';
 
 class ShinyBloc extends PureComponent {
@@ -19,9 +19,13 @@ class ShinyBloc extends PureComponent {
     const { pokemon } = shiny;
     return (
       <ShinyContent onPress={this.loadShiny}>
-        <TextShinyTitle>#{pokemon.number} {pokemon.name}</TextShinyTitle>
-        <View style={{ height: 45 }}></View>
-        {!shiny.validation && <TextShinyNotValide>En cours de validation</TextShinyNotValide>}
+        <ImageShinyList
+          imageStyle={{ borderRadius: 5 }}
+          source={{uri: 'http://www.pokeshine.remi-mavillaz.fr/uploads/shinies/' + shiny.image }}
+        >
+          <TextShinyTitle color={shiny.image ? '#FFF' : '#A09F9F'}>#{pokemon.number} {pokemon.name}</TextShinyTitle>
+          {!shiny.validation && <TextShinyNotValide>En cours de validation</TextShinyNotValide>}
+        </ImageShinyList>
       </ShinyContent>
     )
   }

@@ -90,7 +90,6 @@ class RouterWrapper extends Component {
 
 const mapStateToProps = state => ({
   isAuthenticate: state.member.token,
-  shiny: state.shiny.pokemon.name,
 });
 
 export default compose(

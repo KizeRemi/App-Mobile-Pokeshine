@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateCurrentTries } from '../../../actions/CurrentHunt';
 import { TriesText, TriesLabel } from '../../../components/Texts';
-import { TriesContainer, MeasurementBloc } from '../../../components/Views';
+import { TriesContainer, TryBloc } from '../../../components/Views';
 import { AddTryButton } from '../../../components/Buttons';
 import { AddIcon } from '../../../components/Icons';
 
@@ -28,14 +28,14 @@ class TriesPanel extends Component {
     const { currentTries } = this.props;
     return (
       <TriesContainer>
-        <MeasurementBloc>
+        <TryBloc>
           <TriesText>{currentTries}</TriesText>
           <TriesLabel>Nombre d'essais</TriesLabel>
-        </MeasurementBloc>
-          <AddTryButton onPress={this.incrementTries}>
-            <AddIcon color='#30c7fe'></AddIcon>
-            <TriesLabel>Ajouter</TriesLabel>
-          </AddTryButton>
+        </TryBloc>
+        <AddTryButton onPress={this.incrementTries}>
+          <AddIcon color='#30c7fe'></AddIcon>
+          <TriesLabel>Ajouter</TriesLabel>
+        </AddTryButton>
       </TriesContainer>
     )
   }

@@ -22,7 +22,7 @@ class ProgressGenerations extends PureComponent {
   formatText = () => {
     const { progress, gen } = this.props;
     const currentGen = PKMN_BY_GEN[gen - 1];
-    return `${progress} / ${currentGen.end - currentGen.start}`
+    return `${progress}/${currentGen.end - currentGen.start}`
   }
 
   render() {

@@ -20,7 +20,7 @@ export const SubmitButton = styled.TouchableOpacity`
 `;
 
 export const ShinyContent = styled.TouchableOpacity`
-  width: 150;
+  width: 160;
   height: 100;
   border-radius: 10;
   justify-content: center;

@@ -62,3 +62,9 @@ export const ShinyImage = styled.Image`
   border-width: 3;
   border-color: #fff;
 `;
+
+export const ImageShinyList = styled.ImageBackground`
+  width: 100%;
+  height: 100%;
+  align-items: center;
+`;
