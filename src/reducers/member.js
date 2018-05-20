@@ -17,7 +17,7 @@ export default function userReducer(state = initialState, action) {
     case 'USER_SIGN_UP_SUCCESS': {
       return {
         ...state,
-        isLoading: true,
+        isLoading: false,
         error: null,
         success: true,
       };
@@ -43,11 +43,12 @@ export default function userReducer(state = initialState, action) {
         currentTries: data.currentTries,
       }
     }
+    case 'USER_SIGNUP_ERROR':
     case 'USER_ERROR': {
       if (action.data) {
         return {
           ...state,
-          loading: false,
+          isLoading: false,
           error: action.data,
         };
       }

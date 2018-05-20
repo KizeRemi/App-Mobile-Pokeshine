@@ -8,26 +8,31 @@ class Measurement extends Component {
   static propTypes = {
     height: PropTypes.number.isRequired,
     weight: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
   };
 
+  static defaultProps = {
+    color: '#4A4A4A',
+  }
+
   render() {
-    const  { weight, height } = this.props;
+    const  { weight, height, color } = this.props;
     return (    
       <MeasurementContainer>
-          <MeasurementBloc>
-            <View style={{ flex: 1, flexDirection: 'row' }}>
-              <TextShinyHeight>{weight}</TextShinyHeight>
-              <TextMeasurement> Kg </TextMeasurement>
-            </View>
-            <TextMeasurement>Poids</TextMeasurement>
-          </MeasurementBloc>
-          <MeasurementBloc left>
-            <View style={{ flex: 1, flexDirection: 'row' }}>
-              <TextShinyHeight>{height}</TextShinyHeight>
-              <TextMeasurement> m </TextMeasurement>
-            </View>
-            <TextMeasurement>Taille</TextMeasurement>
-          </MeasurementBloc>
+        <MeasurementBloc>
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            <TextShinyHeight color={color}>{weight}</TextShinyHeight>
+            <TextMeasurement color={color}> Kg </TextMeasurement>
+          </View>
+          <TextMeasurement color={color}>Poids</TextMeasurement>
+        </MeasurementBloc>
+        <MeasurementBloc>
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            <TextShinyHeight color={color}>{height}</TextShinyHeight>
+            <TextMeasurement color={color}> m </TextMeasurement>
+          </View>
+          <TextMeasurement color={color}>Taille</TextMeasurement>
+        </MeasurementBloc>
       </MeasurementContainer>
     )
   }

@@ -6,6 +6,7 @@ export const ImageProfile = styled.Image`
   border-radius: 64;
   border-color: #efeef1;
   border-width: 3;
+  margin-top: 50;
 `;
 
 export const ImageUserRank = styled.Image`
@@ -41,4 +42,23 @@ export const BackgroundPokeball = styled.Image`
   position: absolute;
   top: -75;
   right: -25;
+`;
+
+export const BackgroundType = styled.Image`
+  position: absolute;
+  top:0;
+  left: 0;
+  opacity: 0.2;
+  z-index: 2;
+  margin-left: 15;
+  margin-top: 10;
+`;
+
+export const ShinyImage = styled.Image`
+  z-index: 1;
+  width: 300;
+  height: 200;
+  border-radius: 5;
+  border-width: 3;
+  border-color: #fff;
 `;

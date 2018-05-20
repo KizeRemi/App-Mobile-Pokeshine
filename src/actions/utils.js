@@ -28,7 +28,7 @@ export default function request(url, options) {
         const error = new Error(data.message || response.statusText);
         error.response = response;
         error.data = data;
-        console.log(error);
+        console.log('je passe');
         throw error;
       });
     });

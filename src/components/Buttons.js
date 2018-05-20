@@ -67,3 +67,13 @@ export const UpdateProfileButton = styled.TouchableOpacity`
   border-color: ${blue};
   background-color: #FFF;
 `;
+
+export const AuthButton = styled.TouchableOpacity`
+  align-items: center;
+  justify-content: center;
+  height: 40;
+  border-color: #fff;
+  border-width: 1;
+  background-color: ${blue};
+  margin-vertical: 15;
+`;

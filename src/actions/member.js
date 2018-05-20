@@ -6,7 +6,6 @@ const BASE_URI = 'http://www.pokeshine.remi-mavillaz.fr/index.php/api/v1'
   * Get User
   */
 export function getMe(token, dispatch) {
-  console.log('d');
   return request(`${BASE_URI}/users/me`, {
     method: 'GET',
     headers: {

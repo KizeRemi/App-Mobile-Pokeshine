@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 const blue = '#82daf2';
 
+export const BackgroundAuth = styled.ScrollView`
+  background-color: ${blue};
+  flex: 1;
+`;
+
 export const Background = styled.ScrollView`
   flex: 1;
   background-color: #efeef1;
@@ -11,6 +16,28 @@ export const BackgroundWhite = styled.ScrollView`
   flex: 1;
   background-color: #fff;
 `;
+
+export const LoginContainer = styled.View`
+  width: 100%;
+  padding-horizontal: 60;
+  margin-top: 30;
+  margin-bottom: 50;
+`;
+
+export const LoginTitleContainer = styled.View`
+  align-items: center;
+  margin-bottom: 30;
+`;
+
+export const ErrorContainer = styled.View`
+  align-items: center;
+`;
+
+export const Line = styled.View`
+  border-bottom-width: 1;
+  border-bottom-color: #FFF;
+  margin-vertical: 15;
+`
 
 export const Header = styled.View`
   flex: 1;
@@ -68,6 +95,15 @@ export const ProfileBlocContainer = styled.View`
   border-color: #efeef1;
 `;
 
+export const ProfileDescriptionContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  margin-horizontal: 15;
+  margin-vertical: 10;
+  padding-right: 10;
+  padding-vertical: 10;
+`;
+
 export const ProfileUserInformations = styled.View`
   flex: 1;
   align-items: flex-end;
@@ -95,7 +131,7 @@ export const ProfileProgressContent = styled.View`
 
 export const ProfileBlocContent = styled.View`
   flex: 1;
-  margin-horizontal: 15;
+  margin-horizontal: 5;
   margin-vertical: 5;
 `;
 
@@ -103,15 +139,13 @@ export const ProfileIconView = styled.View`
   width: 20%;
   align-items: center;
   justify-content: center;
-  border-right-width: 2;
-  border-right-color: #efeef1;
 `;
 
 export const ProfileTitleSettings = styled.View`
   width: 100%;
   align-items: center;
   margin-vertical: 20;
-  padding-horizontal: 30;
+  padding-horizontal: 15;
 `;
 
 export const InputContainer = styled.View`
@@ -133,15 +167,16 @@ export const SocialContainer = styled.View`
 export const MeasurementContainer = styled.View`
   flex: 1;
   flex-direction: row;
-  margin-top: 20;
-  height: 66;
+  backgroundColor: #FFF;
+  margin-horizontal: 15;
+  border-radius: 5;
+  top: -20;
 `;
 
 export const MeasurementBloc = styled.View`
   flex: 1;
   align-items: center;
-  border-color: #b3dbfd;
-  ${props => props.left ? 'border-left-width: 2;' : 'border-right-width: 2;'}
+  margin-vertical: 30;
 `;
 
 export const DescriptionBloc = styled.View`
@@ -244,4 +279,33 @@ export const TriesContainer = styled.View`
 export const ButtonCenter = styled.View`
   width: 100%;
   align-items: center;
+`;
+
+export const ShinyTriesContainer = styled.View`
+  flex: 1;
+  align-items: flex-end;
+  margin-top: 50;
+  margin-right: 10;
+`;
+
+export const ShinyTriesContent = styled.View`
+  justify-content: center;
+  align-items: center;
+  border-radius: 25;
+  background-color: #fff;
+  height: 50;
+  width: 200;
+`;
+
+export const CatchDateContainer = styled.View`
+  flex: 1;
+  width: 250;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF;
+  margin-top: 80;
+  height: 25;
+  bottom: -10;
+  border-radius: 12.5;
+  z-index: 2;
 `;

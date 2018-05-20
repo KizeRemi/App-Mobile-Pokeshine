@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Content, Form, Input, Item, Label, Text } from 'native-base';
-import Header from './Header';
+import { LoginContainer, LoginTitleContainer, ErrorContainer, Line } from '../../components/Views';
+import { TitleLoginText, ErrorLoginText, BackLoginText } from '../../components/Texts';
+import { AuthButton } from '../../components/Buttons';
+import { InputAuth } from '../../components/Inputs';
 import { signUp } from '../../actions/auth';
+import { Text } from 'react-native';
 
 const styles = StyleSheet.create({
   layoutCenter: {
@@ -47,50 +50,50 @@ class Login extends Component {
 
   render() {
     const { isLoading, error, toggleAuthentication, success } = this.props;
+    console.log(error);
     return (
-      <Content style={{ padding: 30 }}>
-        {success && <View><Text>Le compte a bien été enregistré.</Text></View>}
-        {error && <View><Text>{error}</Text></View>}
-        <View style={{ alignItems: 'center' }}>
-          <Text>Créer un compte Pokeshine</Text>
-        </View>
-        <Form style={{ marginBottom: 20 }}>
-          <Item floatingLabel style={{ marginLeft: 0 }}>
-            <Label style={{ width: 200 }}>Pseudo</Label>
-            <Input onChangeText={v => this.handleChange('userName', v)} />
-          </Item>
-          <Item floatingLabel style={{ marginLeft: 0 }}>
-            <Label style={{ width: 200 }}>Email</Label>
-            <Input
-              autoCapitalize="none"
-              keyboardType="email-address"
-              onChangeText={v => this.handleChange('email', v)}
-            />
-          </Item>
-          <Item floatingLabel style={{ marginLeft: 0 }}>
-            <Label style={{ width: 200 }}>Mots de passe</Label>
-            <Input
-              secureTextEntry
-              onChangeText={v => this.handleChange('password', v)}
-            />
-          </Item>
-          <Item floatingLabel style={{ marginLeft: 0 }}>
-            <Label style={{ width: 200 }}>Répéter mots de passe</Label>
-            <Input
-              secureTextEntry
-              onChangeText={v => this.handleChange('password2', v)}
-            />
-          </Item>
-        </Form>
-        <TouchableOpacity onPress={this.handleSubmit}>
-          <View>
-            <Text>S'inscrire</Text>
-          </View>
+      <LoginContainer>
+        <LoginTitleContainer>
+          <TitleLoginText>{'Création de compte'.toUpperCase()}</TitleLoginText>
+        </LoginTitleContainer>
+        {success && <ErrorLoginText>Votre compte a bien été créé.</ErrorLoginText>}
+        <ErrorContainer>
+          <ErrorLoginText>{error}</ErrorLoginText>
+        </ErrorContainer>
+        <InputAuth
+          placeholder="Nom d'utilisateur..."
+          placeholderTextColor="#b2b2b2"
+          value={this.state.userName}
+          onChangeText={v => this.handleChange('userName', v)}
+        />
+        <InputAuth
+          placeholder="Ex: user@gmail.com"
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onChangeText={v => this.handleChange('email', v)}
+        />
+        <InputAuth
+          placeholder="Mots de passe..."
+          secureTextEntry
+          onChangeText={v => this.handleChange('password', v)}
+        />
+        <InputAuth
+          placeholder="Répéter mots de passe..."
+          secureTextEntry
+          onChangeText={v => this.handleChange('password2', v)}
+        />
+        <AuthButton onPress={this.handleSubmit}>
+        {isLoading ? (
+          <ActivityIndicator size="large" color="#fff" />
+        ) :  (
+          <TitleLoginText>{`S'inscrire`.toUpperCase()}</TitleLoginText>
+        )}
+        </AuthButton>
+        <Line />
+        <TouchableOpacity style={[styles.layoutCenter]} onPress={() => toggleAuthentication('login')}>
+          <BackLoginText>{`Revenir à la page de connexion`}</BackLoginText>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.layoutCenter, { marginTop: 20 }]} onPress={() => toggleAuthentication('login')}>
-          <Text>Revenir à la page connexion</Text>
-        </TouchableOpacity>
-      </Content>
+      </LoginContainer>
     );
   }
 }

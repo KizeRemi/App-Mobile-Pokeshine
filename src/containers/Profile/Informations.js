@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { ProfileBlocContainer, ProfileIconView, ProfileBlocContent } from '../../components/Views';
+import { ProfileDescriptionContainer, ProfileIconView, ProfileBlocContent } from '../../components/Views';
 import { TextCategoryTitle, TextDescription } from '../../components/Texts';
 import { ProfileIcons } from '../../components/Icons';
 
@@ -10,16 +10,17 @@ class ProfileInformations extends PureComponent {
   }
 
   render () {
+    const { description } = this.props;
     return (      
-      <ProfileBlocContainer>
-        <ProfileIconView>
-          <ProfileIcons></ProfileIcons>
-        </ProfileIconView>
+      <ProfileDescriptionContainer>
         <ProfileBlocContent>
-          <TextCategoryTitle>Mes informations</TextCategoryTitle>
-          <TextDescription>{this.props.description}</TextDescription>
+          {description ? (
+            <TextDescription>{this.props.description.toUpperCase()}</TextDescription>
+          ) : (
+            <TextDescription>Aucune description pour l'instant.</TextDescription>
+          )}
         </ProfileBlocContent>
-      </ProfileBlocContainer>
+      </ProfileDescriptionContainer>
     );
   }
 }

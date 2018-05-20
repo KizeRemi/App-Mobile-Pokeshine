@@ -1,10 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Background, Header, CollectorContent } from '../../components/Views';
-import { View, Text } from 'react-native';
+import { Background, CollectorContent } from '../../components/Views';
 import ScrollGen from './ScrollGen';
-import { TextHeader } from '../../components/Texts';
 import { getShinyCollection } from '../../actions/pokemon';
 import ShinyBloc from './ShinyBloc';
 import NumberBloc from './NumberBloc';
@@ -44,7 +42,6 @@ class Collector extends Component {
 
     return (
       <Background>
-        <Header><TextHeader>SHINYDEX</TextHeader></Header>
         <ScrollGen switchGeneration={this.switchGeneration} />
         <ProgressGeneration counter={counterShinies[generation]} total={range.end - range.start} />
         <CollectorContent>

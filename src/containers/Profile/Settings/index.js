@@ -4,7 +4,7 @@ import { TouchableOpacity, View, Text, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { BackgroundWhite, ProfileTitleSettings, InputContainer } from '../../../components/Views';
 import { Input, Textarea } from '../../../components/Inputs';
-import { TextTitleSettings, TextDescriptionSettings, TextLabel } from '../../../components/Texts';
+import { TextDescriptionSettings, TextLabel } from '../../../components/Texts';
 import Button from '../../../components/Button';
 
 import { updateProfile } from '../../../actions/member';
@@ -42,7 +42,6 @@ class Settings extends Component {
     return (
       <BackgroundWhite>
         <ProfileTitleSettings>
-          <TextTitleSettings>Mettre à jour mon profil</TextTitleSettings>
           <TextDescriptionSettings>Un profil bien rempli est un profil plus susceptible d'être vu.</TextDescriptionSettings>
         </ProfileTitleSettings>
         <InputContainer>

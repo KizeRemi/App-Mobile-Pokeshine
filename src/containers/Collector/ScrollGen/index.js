@@ -15,7 +15,6 @@ class ScrollGen extends PureComponent {
 
   onClick = (gen) => {
     this.props.switchGeneration(gen);
-    console.log(gen);
     this.setState({ activeGen: gen });
   }
 

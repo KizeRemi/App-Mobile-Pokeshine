@@ -44,7 +44,6 @@ export function newShiny(token, pokemon, formData, dispatch) {
   } = formData;
   const youtube = formData.youtube && `www.youtube.com/watch?v=${formData.youtube}`;
   let base = null;
-  console.log(image);
   if (image) {
     base = Platform.OS === 'android' ? image.replace(/\n|\r/g, "") : image;
     base = 'data:image/jpeg;base64,' + base;

@@ -6,7 +6,8 @@
     "icon": "src/images/app-icon.png",
     "privacy": "public",
     "splash": {
-      "image": "./src/images/pokeshine-logo.png"
+      "image": "./src/images/splash-pokeshine.png",
+      "resizeMode": "cover"
     }
   }
 }

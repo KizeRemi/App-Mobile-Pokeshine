@@ -18,7 +18,7 @@ class ProfileHeader extends PureComponent {
     return (      
       <LinearGradient
         colors={['#82daf2', '#2ec4fe', '#26c1fb']}
-        style={{ width: '100%', paddingVertical: 50, alignItems: 'center', height: 280 }}
+        style={{ width: '100%', alignItems: 'center', height: 280 }}
       >
         <BackgroundPokeball source={Pokeball} />
         <Avatar member={member} />

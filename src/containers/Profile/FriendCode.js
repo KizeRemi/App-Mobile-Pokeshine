@@ -16,7 +16,7 @@ class ProfileFriendCode extends PureComponent {
     const { friendCode } = this.props;
     return (      
       <LinearGradient
-        style={{ marginHorizontal: 40, flex: 1, alignItems: 'center', borderRadius: 5, paddingVertical: 10 }}
+        style={{ marginHorizontal: 40, flex: 1, alignItems: 'center', borderRadius: 5, paddingVertical: 10, zIndex: -1 }}
         colors={['#82daf2', '#2ec4fe', '#26c1fb']}
       >
         {friendCode ? (

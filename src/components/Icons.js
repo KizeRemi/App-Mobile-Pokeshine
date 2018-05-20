@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const ProfileIcons = styled.Text`
-  color: #A09F9F;
-  font-size: 28;
+  color: #82daf2;
+  font-size: 30;
   font-family: faRegular;
 `;
 
@@ -56,4 +56,12 @@ export const MarkerIcon = styled.Text`
   font-family: faSolid;
   margin-left: 15;
   margin-top: 20;
+`;
+
+export const TabBarIcon = styled.Text`
+  color: #FFF;
+  font-size: 29;
+  font-family: faSolid;
+  height: 30;
+  width: 34;
 `;

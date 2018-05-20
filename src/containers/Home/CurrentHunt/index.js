@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadCurrentHunt } from '../../../actions/users';
@@ -18,20 +18,24 @@ class CurrentHunt extends Component {
   render() {
     const { currentHunt } = this.props;
     return (
-      <View>
-        <TitlePanelHunt>Mon tableau de Chasse</TitlePanelHunt>
-        <View style={{ marginHorizontal: 20, borderRadius: 5, borderWidth: 1, borderColor: '#30c7fe' }} >
-          <HuntPanel>
-            <Image style={{ marginLeft: 20, marginVertical: 5, width: 75, height: 90 }} source={Poke} />
-            <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end'}}>
-              <PokemonName>{currentHunt.name.toUpperCase()}</PokemonName>
-              <PokemonGen>Génération {currentHunt.generation}</PokemonGen>
-              <PokemonRoad>Route 105</PokemonRoad>
+      <Fragment>
+        {currentHunt && (
+          <Fragment>
+            <TitlePanelHunt>Mon tableau de Chasse</TitlePanelHunt>
+            <View style={{ marginHorizontal: 20, borderRadius: 5, borderWidth: 1, borderColor: '#30c7fe' }} >
+              <HuntPanel>
+                <Image style={{ marginLeft: 20, marginVertical: 5, width: 75, height: 90 }} source={Poke} />
+                <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end'}}>
+                  <PokemonName>{currentHunt.name.toUpperCase()}</PokemonName>
+                  <PokemonGen>Génération {currentHunt.generation}</PokemonGen>
+                  <PokemonRoad>Route 105</PokemonRoad>
+                </View>
+              </HuntPanel>
             </View>
-          </HuntPanel>
-        </View>
-        <TriesPanel />
-      </View>
+            <TriesPanel />
+          </Fragment>
+        )}
+      </Fragment>
     )
   }
 }

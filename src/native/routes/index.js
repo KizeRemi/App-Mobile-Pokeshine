@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Scene, Tabs, Router, Stack } from 'react-native-router-flux';
 
-import { Icon } from 'native-base';
+import { TabBarIcon } from '../../components/Icons';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -16,7 +16,18 @@ import ShinyComponent from '../../containers/Collector/Shiny';
 import ProfileComponent from '../../containers/Profile';
 import SettingsComponent from '../../containers/Profile/Settings';
 
+import Pokeball from '../../images/pokeball-icon.png';
+import PokeballWhite from '../../images/pokeball-icon-white.png';
+import { Image } from 'react-native';
+
 class RouterWrapper extends Component {
+
+  renderRightButton = () => {
+    return(
+       <Image source={Pokeball} style={{ marginRight: 10 }}/>
+    );
+  };
+
   render() {
     return (
       <Router>
@@ -31,27 +42,44 @@ class RouterWrapper extends Component {
           >
             <Stack
               key="profile"
-              icon={() => <Icon name="planet" {...DefaultProps.icons} />}
+              icon={() => <TabBarIcon></TabBarIcon>}
               {...DefaultProps.navbarProps}
             >
               <Scene hideNavBar key="profile" {...DefaultProps.navbarProps} component={ProfileComponent} />
-              <Scene back key="settings" {...DefaultProps.navbarProps} component={SettingsComponent} />
+              <Scene
+                back
+                key="settings"
+                title="Mettre à jour mon profil"
+                {...DefaultProps.navbarProps}
+                component={SettingsComponent}
+              />
             </Stack>
             <Stack
               key="home"
-              icon={() => <Icon name="planet" {...DefaultProps.icons} />}
+              icon={() => <TabBarIcon></TabBarIcon>}
               {...DefaultProps.navbarProps}
             >
-              <Scene hideNavBar key="home" component={HomeComponent} />
+              <Scene
+                key="home"
+                component={HomeComponent}
+                title={`Welcome to pokeshine`.toUpperCase()}
+                {...DefaultProps.navbarCollectorProps}
+              />
             </Stack>
             <Stack
               key="collector"
-              icon={() => <Icon name="planet" {...DefaultProps.icons} />}
+              icon={() => <Image source={PokeballWhite} />}
               {...DefaultProps.navbarProps}
             >
-              <Scene hideNavBar key="collector" component={CollectorComponent} />
+              <Scene
+                key="collector"
+                title={`shinydex`.toUpperCase()}
+                renderRightButton={this.renderRightButton()}
+                component={CollectorComponent}
+                {...DefaultProps.navbarCollectorProps}
+              />
               <Scene back key="hunting" {...DefaultProps.navbarProps} component={HuntingComponent} />
-              <Scene back key="shiny" {...DefaultProps.navbarProps} component={ShinyComponent} />
+              <Scene back key="shiny" {...DefaultProps.navbarCollectorProps} component={ShinyComponent} />
             </Stack>
           </Tabs>
         </Stack>
@@ -62,6 +90,7 @@ class RouterWrapper extends Component {
 
 const mapStateToProps = state => ({
   isAuthenticate: state.member.token,
+  shiny: state.shiny.pokemon.name,
 });
 
 export default compose(

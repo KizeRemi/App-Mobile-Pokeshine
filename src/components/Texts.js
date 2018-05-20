@@ -8,13 +8,6 @@ export const TextHeader = styled.Text`
   font-family: openSansBoldItalic;
 `;
 
-export const TitleHome = styled.Text`
-  color: #b3dbfd;
-  font-size: 24;
-  font-family: openSansBoldItalic;
-  margin-top: 50;
-`;
-
 export const TextScroll = styled.Text`
   color: #fff;
   font-size: ${props => props.active ? '18' : '16'};
@@ -53,10 +46,11 @@ export const TextCategoryTitle = styled.Text`
 `;
 
 export const TextDescription = styled.Text`
-  color: #A09F9F;
+  color: #4A4A4A;
   font-size: 13;
   font-family: openSansRegular;
-  margin-vertical: 10;
+  letter-spacing: 0.5;
+  margin-bottom: 10;
 `;
 
 export const TextRegion = styled.Text`
@@ -77,13 +71,6 @@ export const TextFriendCode = styled.Text`
   color: #FFF;
   font-size: 26;
   font-family: openSansBold;
-`;
-
-export const TextTitleSettings = styled.Text`
-  color: #4A4A4A;
-  font-size: 24;
-  font-family: oswaldBold;
-  margin-bottom: 20;
 `;
 
 export const TextDescriptionSettings = styled.Text`
@@ -131,15 +118,21 @@ export const TextShinyPageTitle = styled.Text`
 `;
 
 export const TextShinyHeight = styled.Text`
-  color: #b3dbfd;
+  color: ${props => props.color && props.color};
   font-size: 30;
   font-family: oswaldBold;
 `;
 
 export const TextMeasurement = styled.Text`
-  color: #b3dbfd;
+  color: ${props => props.color && props.color};
   font-size: 16;
   font-family: oswaldBold;
+`;
+
+export const TextTitleSettings = styled.Text`
+color: #b3dbfd;
+font-size: 16;
+font-family: openSansBoldItalic;
 `;
 
 export const TextTitleDescription = styled.Text`
@@ -256,4 +249,35 @@ export const UpdateProfileText = styled.Text`
   color: ${blue};
   font-size: 15;
   font-family: openSansLight;
+`;
+
+export const ShinyTriesText = styled.Text`
+  color: ${props => props.color && props.color};
+  font-size: 28;
+  font-family: openSansLight;
+`;
+
+export const CatchDateText = styled.Text`
+  color: ${props => props.color && props.color};
+  font-size: 16;
+  font-family: openSansBold;
+`;
+
+export const TitleLoginText = styled.Text`
+  color: #FFF;
+  font-size: 18;
+  font-family: openSansRegular;
+  letter-spacing: 1;
+`;
+
+export const ErrorLoginText = styled.Text`
+  color: #FFF;
+  font-size: 14;
+  font-family: openSansBold;
+`;
+
+export const BackLoginText = styled.Text`
+  color: #FFF;
+  font-size: 16;
+  font-family: openSansRegular;
 `;
